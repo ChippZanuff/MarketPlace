@@ -10,15 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
 
-
-
 public class MainActivity extends AppCompatActivity {
 
     EditText editText;
     GridView gridView;
     ArrayAdapter<String> adapter;
-
-    String[] items = {"a","s","s"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +34,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
-
-//       adapter = new ArrayAdapter<String>(this, R.layout.item, R.id.itemText, items);
-//
-//        gridView = (GridView) findViewById(R.id.gridLayoutMainActivity);
-//        gridView.setAdapter(adapter);
+        
     }
 
     public void onClickCategories(View view){
