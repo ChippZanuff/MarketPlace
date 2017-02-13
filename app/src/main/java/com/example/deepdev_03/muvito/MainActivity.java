@@ -103,10 +103,10 @@ public class MainActivity extends AppCompatActivity {
     private void initBottomTabs()
     {
         this.bottomTabs = (TabLayout) findViewById(R.id.navigation_bottom_bar);
-        this.bottomTabs.addTab(this.bottomTabs.newTab().setIcon(R.drawable.ic_menu_camera));
-        this.bottomTabs.addTab(this.bottomTabs.newTab().setIcon(R.drawable.ic_menu_gallery));
-        this.bottomTabs.addTab(this.bottomTabs.newTab().setIcon(R.drawable.ic_menu_manage));
-        this.bottomTabs.addTab(this.bottomTabs.newTab().setIcon(R.drawable.ic_menu_send));
+        this.bottomTabs.addTab(this.bottomTabs.newTab().setIcon(R.drawable.ic_home_black_24dp));
+        this.bottomTabs.addTab(this.bottomTabs.newTab().setIcon(R.drawable.ic_star_black_24dp));
+        this.bottomTabs.addTab(this.bottomTabs.newTab().setIcon(R.drawable.ic_add_circle_black_24dp));
+        this.bottomTabs.addTab(this.bottomTabs.newTab().setIcon(R.drawable.ic_perm_contact_calendar_black_24dp));
     }
 
     private void hideViews() {
