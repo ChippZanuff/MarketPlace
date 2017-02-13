@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
+
+
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/textView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="20dp"
+    android:layout_height="20dp"
+    android:id="@+id/imageViewCategoriesItem"
+    android:layout_alignParentLeft="true"
+    android:layout_marginLeft="20dp"
+    android:layout_centerVertical="true"
+    android:background="@drawable/ic_menu_camera"
+    />
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/textViewCategoriesItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:padding="5dp"
-    android:textColor="#00FF00"
-    android:textSize="24sp">
-</TextView>
+    android:layout_alignLeft="@id/imageViewCategoriesItem"
+    android:layout_marginLeft="40dp"
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:gravity="center_vertical"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall" />
+
+    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/imageViewSelectedCategoriesItem"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_centerVertical="true"
+        />
+
+</RelativeLayout>
