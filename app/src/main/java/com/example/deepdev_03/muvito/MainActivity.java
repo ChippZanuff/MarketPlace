@@ -15,6 +15,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.GridSpacingItemDecoration;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.HidingScrollListener;
@@ -40,7 +41,10 @@ public class MainActivity extends AppCompatActivity {
 
             this.myToolbar = (Toolbar) findViewById(R.id.toolbarMainActivity);
             setSupportActionBar(myToolbar);
+
+        if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
             editText = (EditText) findViewById(R.id.editTextMainActivity);
             editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -51,15 +55,27 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
+        }
 
         this.initBottomTabs();
         this.initRecyclerView();
 
+
+
     }
 
-    public void onClickCategories(View view){
-        Intent intent = new Intent(this, CategoriesActivity.class);
-        startActivity(intent);
+//    public void onClickCategories(View view){
+//        Intent intent = new Intent(this, CategoriesActivity.class);
+//        startActivity(intent);
+//    }
+
+
+    public void onClickAddItem (View view) {
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Пdasd", Toast.LENGTH_SHORT);
+        toast.show();
+        Intent i = new Intent(this, AddItemActivity.class);
+        startActivity(i);
     }
 
     private ArrayList<OffersItem> getItems()
