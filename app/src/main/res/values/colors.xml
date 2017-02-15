@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="distanceBackgroundColor">#4333</color>
+    <color name="colorGreen">#26ec18</color>
+    <color name="colorYellow">#cce60c</color>
+    <color name="colorRed">#ff1303</color>
 </resources>

@@ -64,17 +64,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    public void onClickCategories(View view){
-//        Intent intent = new Intent(this, CategoriesActivity.class);
-//        startActivity(intent);
-//    }
+    public void onClickCategories(View view){
+        Intent intent = new Intent(this, CategoriesActivity.class);
+        startActivity(intent);
+    }
 
 
-    public void onClickAddItem (View view) {
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Пdasd", Toast.LENGTH_SHORT);
-        toast.show();
-        Intent i = new Intent(this, AddItemActivity.class);
+    public void onClickFilter (View view) {
+        Intent i = new Intent(this, FilterActivity.class);
         startActivity(i);
     }
 
@@ -83,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         Bitmap image;
         ArrayList<OffersItem> items = new ArrayList<>();
 
-        for(int i = 0; i <= 20; i++)
+        for(int i = 0; i <= 10; i++)
         {
             image = BitmapFactory.decodeResource(getResources(), R.drawable.ic_menu_camera);
             items.add(new OffersItem(image, i + " km", i + " rubley", i + " description"));
@@ -137,5 +134,7 @@ public class MainActivity extends AppCompatActivity {
         this.myToolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
         this.bottomTabs.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
     }
+
+
 }
 
