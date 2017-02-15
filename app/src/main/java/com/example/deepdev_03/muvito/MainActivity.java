@@ -26,6 +26,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final String OFFERS_KEY = "offerItem";
     EditText editText;
     ArrayAdapter<String> adapter;
     private RecyclerView recyclerView;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout bottomTabs;
     private OfferItemsAdapter itemsAdapter;
     private Toolbar myToolbar;
+    private ArrayList<OffersItem> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+        this.items = this.getItems();
         this.initBottomTabs();
         this.initRecyclerView();
 
@@ -83,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         for(int i = 0; i <= 10; i++)
         {
             image = BitmapFactory.decodeResource(getResources(), R.drawable.ic_menu_camera);
-            items.add(new OffersItem(image, i + " km", i + " rubley", i + " description"));
+            items.add(new OffersItem(image, i + " km", i + " rubley", i + " description", i + " name", i + "date", i));
         }
 
         return items;
@@ -92,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     private void initRecyclerView()
     {
         this.layoutManager = new GridLayoutManager(getApplicationContext(), 2);
-        this.itemsAdapter = new OfferItemsAdapter(this.getItems());
+        this.itemsAdapter = new OfferItemsAdapter(this.items);
         this.recyclerView = (RecyclerView) findViewById(R.id.offers_grid);
         this.recyclerView.setLayoutManager(this.layoutManager);
         this.recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, 25, false));
@@ -109,6 +112,18 @@ public class MainActivity extends AppCompatActivity {
             public void onShow()
             {
                 showViews();
+            }
+        });
+
+        ItemClickSupport.addTo(this.recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener()
+        {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v)
+            {
+                Intent intent = new Intent(getApplicationContext(), OffersActivity.class);
+                intent.putExtra(OFFERS_KEY, items.get(position));
+                System.out.println("trying to start offers activity");
+                startActivity(intent);
             }
         });
     }
