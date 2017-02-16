@@ -25,11 +25,12 @@
         >
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="left"
             android:onClick="onClickCategories"
             android:focusable="true"
+            android:background="@drawable/menu"
             android:focusableInTouchMode="true"/>
 
         <EditText
@@ -41,14 +42,17 @@
             android:ems="20"
             android:layout_alignBottom="@+id/my_toolbar"
             android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
             android:id="@+id/editTextMainActivity"
             android:onClick="onClickEditText" />
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="right"
-            android:onClick="onClickFilter" />
+            android:onClick="onClickFilter"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/tune"/>
 
 
     </android.support.v7.widget.Toolbar>
