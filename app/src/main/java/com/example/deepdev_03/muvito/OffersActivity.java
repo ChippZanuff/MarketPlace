@@ -7,18 +7,21 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.example.deepdev_03.muvito.Model.OffersItem;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -32,7 +35,8 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
     private ImageView collapsingImage;
     private NestedScrollView scrollView;
     private OffersItem item;
-    private MapView mapView;
+    private GoogleMap map;
+    private ImageView sellerAvatar;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -49,16 +53,20 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
 
         ViewCompat.setTransitionName(findViewById(R.id.app_bar_offer), this.EXTRA_IMAGE);
         supportPostponeEnterTransition();
-        this.mapView.getMapAsync(this);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.google_map);
+        mapFragment.getMapAsync(this);
     }
 
 
     @Override
     public void onMapReady(GoogleMap googleMap)
     {
+        this.map = googleMap;
         LatLng tokyoUniversity = new LatLng(35.7126775, 139.76198899999997);
-        googleMap.addMarker(new MarkerOptions().position(tokyoUniversity));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(tokyoUniversity));
+        this.map.addMarker(new MarkerOptions().position(tokyoUniversity));
+        this.map.moveCamera(CameraUpdateFactory.newLatLng(tokyoUniversity));
+
     }
 
     private void findViews()
@@ -70,7 +78,9 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.devka);
         this.collapsingImage.setImageBitmap(image);
         this.scrollView = (NestedScrollView) findViewById(R.id.scroll_container_offer);
-        this.mapView = (MapView) findViewById(R.id.google_map);
+
+        this.sellerAvatar = (ImageView) findViewById(R.id.sellers_avatar);
+        this.setCircularImage();
     }
 
     private void initActivityTransitions() {
@@ -93,5 +103,23 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         setSupportActionBar(this.toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    public void OnClick(View view)
+    {
+        if(view.getId() == R.id.call_action)
+        {
+
+        }
+        if(view.getId() == R.id.send_email)
+        {
+
+        }
+    }
+
+    private void setCircularImage()
+    {
+        RoundedBitmapDrawable roundedDrawable = RoundedBitmapDrawableFactory.create(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.devka));
+        this.sellerAvatar.setImageDrawable(roundedDrawable);
     }
 }
