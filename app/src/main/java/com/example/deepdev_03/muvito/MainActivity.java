@@ -9,20 +9,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.GridSpacingItemDecoration;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.HidingScrollListener;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItemsAdapter;
 import com.example.deepdev_03.muvito.Model.OffersItem;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+
+import static android.R.attr.bitmap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         for(int i = 0; i <= 10; i++)
         {
-            image = BitmapFactory.decodeResource(getResources(), R.drawable.ic_menu_camera);
+            image = BitmapFactory.decodeResource(getResources(), R.drawable.empty_img);
             items.add(new OffersItem(image, i + " km", i + " rubley", i + " description", i + " name", i + "date", i));
         }
 
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         this.itemsAdapter = new OfferItemsAdapter(this.items);
         this.recyclerView = (RecyclerView) findViewById(R.id.offers_grid);
         this.recyclerView.setLayoutManager(this.layoutManager);
-        this.recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, 25, false));
+        this.recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, 2, false));
         this.recyclerView.setAdapter(this.itemsAdapter);
         this.recyclerView.addOnScrollListener(new HidingScrollListener()
         {

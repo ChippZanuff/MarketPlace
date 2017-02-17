@@ -3,18 +3,25 @@ package com.example.deepdev_03.muvito;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.deepdev_03.muvito.Model.OffersItem;
@@ -36,7 +43,8 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
     private NestedScrollView scrollView;
     private OffersItem item;
     private GoogleMap map;
-    private ImageView sellerAvatar;
+    private ImageView sellerAvatar, shareWith, shareVk;
+    private Button call, sendEmail;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -50,6 +58,7 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         this.findViews();
         this.initToolbar();
         this.setCollapsingToolbarLayout();
+        this.setImages();
 
         ViewCompat.setTransitionName(findViewById(R.id.app_bar_offer), this.EXTRA_IMAGE);
         supportPostponeEnterTransition();
@@ -75,12 +84,12 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         this.toolbar = (Toolbar) findViewById(R.id.toolbar_offer);
         this.collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_offer);
         this.collapsingImage = (ImageView) findViewById(R.id.collapse_image_offer);
-        Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.devka);
-        this.collapsingImage.setImageBitmap(image);
         this.scrollView = (NestedScrollView) findViewById(R.id.scroll_container_offer);
-
+        this.shareVk = (ImageView) findViewById(R.id.vk_share);
+        this.shareWith = (ImageView) findViewById(R.id.share_another_way);
         this.sellerAvatar = (ImageView) findViewById(R.id.sellers_avatar);
-        this.setCircularImage();
+        this.call = (Button) findViewById(R.id.call_action);
+        this.sendEmail = (Button) findViewById(R.id.send_email);
     }
 
     private void initActivityTransitions() {
@@ -103,6 +112,7 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         setSupportActionBar(this.toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_back);
     }
 
     public void OnClick(View view)
@@ -117,9 +127,32 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         }
     }
 
-    private void setCircularImage()
+    private void setImages()
     {
-        RoundedBitmapDrawable roundedDrawable = RoundedBitmapDrawableFactory.create(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.devka));
-        this.sellerAvatar.setImageDrawable(roundedDrawable);
+        this.collapsingImage.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.devka));
+        this.sellerAvatar.setImageBitmap(this.getCroppedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.devka)));
+        this.shareWith.setImageBitmap(this.getCroppedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ic_share_with)));
+    }
+
+    private Bitmap getCroppedBitmap(Bitmap bitmap) {
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+                bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+
+        final int color = 0xff424242;
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(color);
+        // canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
+        canvas.drawCircle(bitmap.getWidth() / 2, bitmap.getHeight() / 2,
+                bitmap.getWidth() / 2, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, rect, rect, paint);
+        //Bitmap _bmp = Bitmap.createScaledBitmap(output, 60, 60, false);
+        //return _bmp;
+        return output;
     }
 }
