@@ -8,16 +8,14 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
 import android.view.View;
@@ -32,6 +30,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+
 public class OffersActivity extends AppCompatActivity implements OnMapReadyCallback
 {
     private final String OFFERS_KEY = "offerItem";
@@ -39,12 +39,14 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
     private AppBarLayout appBar;
     private Toolbar toolbar;
     private CollapsingToolbarLayout collapsingToolbarLayout;
-    private ImageView collapsingImage;
+    //private ImageView collapsingImage;
     private NestedScrollView scrollView;
     private OffersItem item;
     private GoogleMap map;
     private ImageView sellerAvatar, shareWith, shareVk;
     private Button call, sendEmail;
+    private ViewPager imagePager;
+    private ArrayList<Integer> images = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -59,6 +61,7 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         this.initToolbar();
         this.setCollapsingToolbarLayout();
         this.setImages();
+        this.imagePager.setAdapter(new ImageSliderAdapter(getApplicationContext(), this.setSliderImages()));
 
         ViewCompat.setTransitionName(findViewById(R.id.app_bar_offer), this.EXTRA_IMAGE);
         supportPostponeEnterTransition();
@@ -83,13 +86,14 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         this.appBar = (AppBarLayout) findViewById(R.id.app_bar_offer);
         this.toolbar = (Toolbar) findViewById(R.id.toolbar_offer);
         this.collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_offer);
-        this.collapsingImage = (ImageView) findViewById(R.id.collapse_image_offer);
+        //this.collapsingImage = (ImageView) findViewById(R.id.collapse_image_offer);
         this.scrollView = (NestedScrollView) findViewById(R.id.scroll_container_offer);
         this.shareVk = (ImageView) findViewById(R.id.vk_share);
         this.shareWith = (ImageView) findViewById(R.id.share_another_way);
         this.sellerAvatar = (ImageView) findViewById(R.id.sellers_avatar);
         this.call = (Button) findViewById(R.id.call_action);
         this.sendEmail = (Button) findViewById(R.id.send_email);
+        this.imagePager = (ViewPager) findViewById(R.id.offer_image_pager);
     }
 
     private void initActivityTransitions() {
@@ -129,7 +133,7 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
 
     private void setImages()
     {
-        this.collapsingImage.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.devka));
+        //this.collapsingImage.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.devka));
         this.sellerAvatar.setImageBitmap(this.getCroppedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.devka)));
         this.shareWith.setImageBitmap(this.getCroppedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ic_share_with)));
     }
@@ -154,5 +158,16 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         //Bitmap _bmp = Bitmap.createScaledBitmap(output, 60, 60, false);
         //return _bmp;
         return output;
+    }
+
+    private ArrayList<Integer> setSliderImages()
+    {
+        int[] images = {R.drawable.devka, R.drawable.empty_img, R.drawable.devka, R.drawable.empty_img};
+        for(int i = 0; i < images.length; i++)
+        {
+            this.images.add(images[i]);
+        }
+
+        return this.images;
     }
 }
