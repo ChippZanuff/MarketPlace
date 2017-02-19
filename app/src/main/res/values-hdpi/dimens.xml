@@ -45,4 +45,5 @@
     <dimen name="call_sendEmail_width">135dp</dimen>
     <dimen name="call_sendEmail_height">27dp</dimen>
     <dimen name="text_description_size">14.4dp</dimen>
+    <dimen name="elevation_hack">-3.7dp</dimen>
 </resources>

@@ -14,7 +14,7 @@ public class ItemClickSupport
         public void onClick(View v) {
             if (onItemClickListener != null) {
                 RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(v);
-                onItemClickListener.onItemClicked(recyclerView, holder.getAdapterPosition(), v);
+                onItemClickListener.onItemClicked(recyclerView, holder.getAdapterPosition() - 2, v);
             }
         }
     };
@@ -23,7 +23,7 @@ public class ItemClickSupport
         public boolean onLongClick(View v) {
             if (onItemLongClickListener != null) {
                 RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(v);
-                return onItemLongClickListener.onItemLongClicked(recyclerView, holder.getAdapterPosition(), v);
+                return onItemLongClickListener.onItemLongClicked(recyclerView, holder.getAdapterPosition() - 2, v);
             }
             return false;
         }

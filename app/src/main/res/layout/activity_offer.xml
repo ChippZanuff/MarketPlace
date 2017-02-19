@@ -44,7 +44,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/elevation"
-            android:background="@drawable/toolbar_dropshadow"/>
+            android:background="@drawable/toolbar_up_to_bottom_shadow"/>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -53,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
+        android:layout_marginTop="@dimen/elevation_hack"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -264,7 +265,8 @@
             android:text="Call"
             android:drawableLeft="@android:drawable/sym_call_outgoing"
             android:drawableStart="@android:drawable/sym_call_outgoing"
-            android:background="@drawable/call_button_background"/>
+            android:background="@drawable/call_button_background"
+            style="?android:attr/buttonBarStyle"/>
 
         <Button
             android:id="@+id/send_email"
@@ -274,7 +276,8 @@
             android:layout_marginLeft="@dimen/activity_vertical_margin"
             android:onClick="OnClick"
             android:text="Send email"
-            android:background="@drawable/send_email_button_background"/>
+            android:background="@drawable/send_email_button_background"
+            style="?android:attr/buttonBarStyle"/>
 
     </LinearLayout>
 

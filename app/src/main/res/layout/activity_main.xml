@@ -14,55 +14,80 @@
         android:scrollbars="vertical"
         android:clipToPadding="true"/>
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarMainActivity"
+    <LinearLayout
+        android:id="@+id/main_toolbar_holder"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="@dimen/elevation"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        >
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <Button
-            android:layout_width="@dimen/main_toolbar_button"
-            android:layout_height="@dimen/burger_button"
-            android:layout_gravity="left"
-            android:onClick="onClickCategories"
-            android:focusable="true"
-            android:background="@drawable/menu"
-            android:focusableInTouchMode="true"/>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarMainActivity"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="@dimen/elevation"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:background="@android:color/transparent"
-            android:hint="% Поиск"
-            android:ems="20"
-            android:layout_alignBottom="@+id/my_toolbar"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="@dimen/search_margin"
-            android:id="@+id/editTextMainActivity"
-            android:onClick="onClickEditText" />
+            <Button
+                android:layout_width="@dimen/main_toolbar_button"
+                android:layout_height="@dimen/burger_button"
+                android:layout_gravity="left"
+                android:onClick="onClickCategories"
+                android:focusable="true"
+                android:background="@drawable/menu"
+                android:focusableInTouchMode="true"/>
 
-        <Button
-            android:layout_width="@dimen/burger_button"
-            android:layout_height="@dimen/burger_button"
-            android:layout_gravity="right"
-            android:onClick="onClickFilter"
-            android:layout_marginRight="@dimen/filter_margin"
-            android:background="@drawable/tune"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:background="@android:color/transparent"
+                android:hint="% Поиск"
+                android:ems="20"
+                android:layout_alignBottom="@+id/my_toolbar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/search_margin"
+                android:id="@+id/editTextMainActivity"
+                android:onClick="onClickEditText" />
+
+            <Button
+                android:layout_width="@dimen/burger_button"
+                android:layout_height="@dimen/burger_button"
+                android:layout_gravity="right"
+                android:onClick="onClickFilter"
+                android:layout_marginRight="@dimen/filter_margin"
+                android:background="@drawable/tune"/>
 
 
-    </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/navigation_bottom_bar"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/elevation"
+            android:background="@drawable/toolbar_up_to_bottom_shadow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_tablayout_holder"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_tabs_size"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@android:color/white"
-        app:tabGravity="fill"/>
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/elevation"
+            android:background="@drawable/toolbar_bottom_to_up_shadow"/>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/navigation_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_tabs_size"
+            android:background="@android:color/white"
+            app:tabGravity="fill"/>
+
+    </LinearLayout>
 
 </FrameLayout>

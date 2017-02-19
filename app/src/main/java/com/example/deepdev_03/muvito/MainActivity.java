@@ -9,23 +9,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.GridSpacingItemDecoration;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.HidingScrollListener;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItemsAdapter;
 import com.example.deepdev_03.muvito.Model.OffersItem;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-
-import static android.R.attr.bitmap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,19 +35,18 @@ public class MainActivity extends AppCompatActivity {
     private OfferItemsAdapter itemsAdapter;
     private Toolbar myToolbar;
     private ArrayList<OffersItem> items = new ArrayList<>();
+    private LinearLayout toolbarHolder, tablayoutHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-            this.myToolbar = (Toolbar) findViewById(R.id.toolbarMainActivity);
-            setSupportActionBar(myToolbar);
+        this.myToolbar = (Toolbar) findViewById(R.id.toolbarMainActivity);
+        setSupportActionBar(myToolbar);
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-
             editText = (EditText) findViewById(R.id.editTextMainActivity);
             editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
@@ -65,9 +61,13 @@ public class MainActivity extends AppCompatActivity {
         this.items = this.getItems();
         this.initBottomTabs();
         this.initRecyclerView();
+        this.findViews();
+    }
 
-
-
+    private void findViews()
+    {
+        this.tablayoutHolder = (LinearLayout) findViewById(R.id.main_tablayout_holder);
+        this.toolbarHolder = (LinearLayout) findViewById(R.id.main_toolbar_holder);
     }
 
     public void onClickCategories(View view){
@@ -141,18 +141,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void hideViews() {
-        this.myToolbar.animate().translationY(-this.myToolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+        this.toolbarHolder.animate().translationY(-this.toolbarHolder.getHeight()).setInterpolator(new AccelerateInterpolator(2));
 
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.bottomTabs.getLayoutParams();
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.tablayoutHolder.getLayoutParams();
         int tabsBottomMargin = lp.bottomMargin;
-        this.bottomTabs.animate().translationY(this.bottomTabs.getHeight()+tabsBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
+        this.tablayoutHolder.animate().translationY(this.tablayoutHolder.getHeight()+tabsBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
     }
 
     private void showViews() {
-        this.myToolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
-        this.bottomTabs.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+        this.toolbarHolder.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+        this.tablayoutHolder.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
     }
-
-
 }
-
