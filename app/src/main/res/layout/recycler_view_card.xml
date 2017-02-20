@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/card_margin"
-        android:elevation="4dp"
+        android:elevation="@dimen/elevation"
         card_view:cardCornerRadius="@dimen/card_album_radius">
 
         <RelativeLayout
@@ -41,17 +41,17 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
+                    android:paddingLeft="@dimen/card_margin"
+                    android:paddingRight="@dimen/card_margin"
                     android:text="2.3 km"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/min_text_size"
                     android:textColor="@android:color/white"
                     android:background="@color/distanceBackgroundColor" />
 
                 <ImageButton
                     android:id="@+id/star"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="@dimen/collapsing_toolbar_icon_size"
+                    android:layout_height="@dimen/collapsing_toolbar_icon_size"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"

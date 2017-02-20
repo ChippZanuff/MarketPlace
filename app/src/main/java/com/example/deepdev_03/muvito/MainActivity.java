@@ -17,11 +17,13 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.GridSpacingItemDecoration;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.HidingScrollListener;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItemsAdapter;
 import com.example.deepdev_03.muvito.Model.OffersItem;
 
+import io.fabric.sdk.android.Fabric;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
+        this.logUser();
+        //this.forceCrash(this.toolbarHolder);
 
         this.myToolbar = (Toolbar) findViewById(R.id.toolbarMainActivity);
         setSupportActionBar(myToolbar);
@@ -99,7 +104,8 @@ public class MainActivity extends AppCompatActivity {
     {
         this.layoutManager = new GridLayoutManager(getApplicationContext(), 2);
         this.itemsAdapter = new OfferItemsAdapter(this.items);
-        this.recyclerView = (RecyclerView) findViewById(R.id.offers_grid);
+        View includedRecycler = findViewById(R.id.recycler_view);
+        this.recyclerView = (RecyclerView) includedRecycler.findViewById(R.id.recycler_view);
         this.recyclerView.setLayoutManager(this.layoutManager);
         this.recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, 2, false));
         this.recyclerView.setAdapter(this.itemsAdapter);
@@ -152,4 +158,18 @@ public class MainActivity extends AppCompatActivity {
         this.toolbarHolder.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
         this.tablayoutHolder.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
     }
+
+    private void logUser() {
+        // TODO: Use the current user's information
+        // You can call any combination of these three methods
+        Crashlytics.setUserIdentifier("12345");
+        Crashlytics.setUserEmail("user@fabric.io");
+        Crashlytics.setUserName("Test User");
+    }
+
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
+    }
+
+
 }

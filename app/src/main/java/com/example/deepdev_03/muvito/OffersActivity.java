@@ -12,16 +12,21 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.deepdev_03.muvito.Adapters.RecyclerView.GridSpacingItemDecoration;
+import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItemsAdapter;
 import com.example.deepdev_03.muvito.Model.OffersItem;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -47,6 +52,8 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
     private Button call, sendEmail;
     private ViewPager imagePager;
     private ArrayList<Integer> images = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private TabLayout dotPager;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -62,6 +69,8 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         this.setCollapsingToolbarLayout();
         this.setImages();
         this.imagePager.setAdapter(new ImageSliderAdapter(getApplicationContext(), this.setSliderImages()));
+        this.dotPager.setupWithViewPager(this.imagePager);
+        this.initRecyclerView();
 
         ViewCompat.setTransitionName(findViewById(R.id.app_bar_offer), this.EXTRA_IMAGE);
         supportPostponeEnterTransition();
@@ -86,7 +95,6 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         this.appBar = (AppBarLayout) findViewById(R.id.app_bar_offer);
         this.toolbar = (Toolbar) findViewById(R.id.toolbar_offer);
         this.collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_offer);
-        //this.collapsingImage = (ImageView) findViewById(R.id.collapse_image_offer);
         this.scrollView = (NestedScrollView) findViewById(R.id.scroll_container_offer);
         this.shareVk = (ImageView) findViewById(R.id.vk_share);
         this.shareWith = (ImageView) findViewById(R.id.share_another_way);
@@ -94,6 +102,7 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         this.call = (Button) findViewById(R.id.call_action);
         this.sendEmail = (Button) findViewById(R.id.send_email);
         this.imagePager = (ViewPager) findViewById(R.id.offer_image_pager);
+        this.dotPager = (TabLayout) findViewById(R.id.offer_dot_pager);
     }
 
     private void initActivityTransitions() {
@@ -129,13 +138,15 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         {
 
         }
+        if(view.getId() == R.id.complain)
+        {
+
+        }
     }
 
     private void setImages()
     {
-        //this.collapsingImage.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.devka));
         this.sellerAvatar.setImageBitmap(this.getCroppedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.devka)));
-        this.shareWith.setImageBitmap(this.getCroppedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ic_share_with)));
     }
 
     private Bitmap getCroppedBitmap(Bitmap bitmap) {
@@ -169,5 +180,31 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         }
 
         return this.images;
+    }
+
+    private void initRecyclerView()
+    {
+        OfferItemsAdapter adapter = new OfferItemsAdapter(this.getItems());
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        View includedRecycler = findViewById(R.id.recycler_view);
+        this.recyclerView = (RecyclerView) includedRecycler.findViewById(R.id.recycler_view);
+        this.recyclerView.setLayoutManager(gridLayoutManager);
+        this.recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, 2, false));
+        this.recyclerView.setAdapter(adapter);
+        this.recyclerView.setNestedScrollingEnabled(false);
+    }
+
+    private ArrayList<OffersItem> getItems()
+    {
+        Bitmap image;
+        ArrayList<OffersItem> items = new ArrayList<>();
+
+        for(int i = 0; i <= 10; i++)
+        {
+            image = BitmapFactory.decodeResource(getResources(), R.drawable.empty_img);
+            items.add(new OffersItem(image, i + " km", i + " rubley", i + " description", i + " name", i + "date", i));
+        }
+
+        return items;
     }
 }

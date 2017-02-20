@@ -12,7 +12,7 @@
     <dimen name="backdrop_title">30dp</dimen>
     <dimen name="backdrop_subtitle">18dp</dimen>
     <dimen name="card_margin">5dp</dimen>
-    <dimen name="card_album_radius">0dp</dimen>
+    <dimen name="card_album_radius">3.3dp</dimen>
     <dimen name="album_cover_height">160dp</dimen>
     <dimen name="album_title_padding">10dp</dimen>
     <dimen name="album_title">15sp</dimen>
@@ -46,4 +46,5 @@
     <dimen name="call_sendEmail_height">33dp</dimen>
     <dimen name="text_description_size">17.6dp</dimen>
     <dimen name="elevation_hack">-4.4dp</dimen>
+    <dimen name="collapsing_toolbar_icon_size">26.4dp</dimen>
 </resources>
