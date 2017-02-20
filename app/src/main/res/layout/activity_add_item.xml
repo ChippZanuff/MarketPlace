@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_add_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.deepdev_03.muvito.AddItemActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarAddItemActivity"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        >
+
+        <Button
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="left"
+            android:background="@drawable/close"
+            android:onClick="onClickCloseAddItemActivity"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Объявление"
+            android:layout_marginLeft="35dp"
+            android:textColor="#000"
+            android:id="@+id/textViewToolbarAddItemAxctivity"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:textColor="#039BE5"
+            android:background="@null"
+            android:text="ОПУБЛИКОВАТЬ"
+            />
+    </android.support.v7.widget.Toolbar>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarAddItemActivity"
+        android:id="@+id/tableLayoutAddItemActivity">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableRow">
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tableLayoutAddItemActivity">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_camera"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textSize="15sp"
+                android:inputType="textPersonName"
+                android:background="@android:color/transparent"
+                android:hint="Название товара"
+                android:ems="20"
+                android:layout_marginLeft="20dp">
+                </EditText>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#bab6b6"
+                android:padding="2dip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_camera"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/editTextPrice"
+                android:textSize="15sp"
+                android:layout_marginLeft="20dp"
+                android:inputType="numberDecimal"
+                android:background="@android:color/transparent"
+                android:hint="Стоимость, ₽"
+                android:ems="20">
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#bab6b6"
+                android:padding="2dip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_camera"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:inputType="textMultiLine"
+                android:textSize="15sp"
+                android:background="@android:color/transparent"
+                android:hint="Описание (до 500 символов)"
+                android:ems="20"
+                android:layout_marginLeft="20dp">
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#bab6b6"
+                android:padding="2dip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="#dcdbdb"
+                android:padding="2dip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#bab6b6"
+                android:padding="2dip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickCategoriesAddItemActivity">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_camera"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"
+                android:text="Категория"
+                android:gravity="center_vertical"
+                android:textColor="#bab6b6"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#bab6b6"
+                android:padding="2dip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="#dcdbdb"
+                android:padding="2dip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#bab6b6"
+                android:padding="2dip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickLocationAddItemActivity">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_camera"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"
+                android:text="Местоположение"
+                android:gravity="center_vertical"
+                android:textColor="#bab6b6"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#bab6b6"
+                android:padding="2dip" />
+        </TableRow>
+
+    </TableLayout>
+</RelativeLayout>

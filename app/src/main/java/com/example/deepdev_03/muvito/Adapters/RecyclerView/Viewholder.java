@@ -9,23 +9,23 @@ import com.example.deepdev_03.muvito.R;
 
 public class Viewholder extends RecyclerView.ViewHolder
 {
-    public ImageView image;
-    public TextView distance, money, description;
+    ImageView image;
+    TextView distance, money, name;
 
-    public Viewholder(View itemView, ImageView image, TextView description, TextView distance, TextView money)
+    public Viewholder(View itemView, ImageView image, TextView name, TextView distance, TextView money)
     {
         super(itemView);
         this.image = image;
-        this.description = description;
+        this.name = name;
         this.distance = distance;
         this.money = money;
     }
 
     public static Viewholder newInstance(View parent) {
-        ImageView image = (ImageView) parent.findViewById(R.id.offers_item_image);
-        TextView distance = (TextView) parent.findViewById(R.id.offers_item_distance);
-        TextView money = (TextView) parent.findViewById(R.id.offers_item_money_sum);
-        TextView description = (TextView) parent.findViewById(R.id.offers_item_description);
+        ImageView image = (ImageView) parent.findViewById(R.id.thumbnail);
+        TextView distance = (TextView) parent.findViewById(R.id.distance);
+        TextView money = (TextView) parent.findViewById(R.id.price);
+        TextView description = (TextView) parent.findViewById(R.id.name);
         return new Viewholder(parent, image, description, distance, money);
     }
 }

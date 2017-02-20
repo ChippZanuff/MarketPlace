@@ -27,7 +27,7 @@ public class OfferItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     {
         Context context = parent.getContext();
         if (viewType == TYPE_ITEM) {
-            final View view = LayoutInflater.from(context).inflate(R.layout.offer_item_viewholder, parent, false);
+            final View view = LayoutInflater.from(context).inflate(R.layout.recycler_view_card, parent, false);
             return Viewholder.newInstance(view);
         } else if (viewType == TYPE_HEADER) {
             final View view = LayoutInflater.from(context).inflate(R.layout.viewholder_header, parent, false);
@@ -43,10 +43,10 @@ public class OfferItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         {
             Viewholder holder = (Viewholder) viewHolder;
             OffersItem item = items.get(position - 2);
-            holder.image.setImageBitmap(item.getImage());
+            //holder.image.setImageBitmap(item.getImage());
             holder.distance.setText(item.getDistance());
             holder.money.setText(item.getMoney());
-            holder.description.setText(item.getDescription());
+            holder.name.setText(item.getName());
         }
     }
 
