@@ -47,4 +47,5 @@
     <dimen name="text_description_size">17.6dp</dimen>
     <dimen name="elevation_hack">-4.4dp</dimen>
     <dimen name="collapsing_toolbar_icon_size">26.4dp</dimen>
+    <dimen name="collapsing_toolbar_shadow">110dp</dimen>
 </resources>
