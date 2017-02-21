@@ -37,23 +37,25 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
+import me.henrytao.smoothappbarlayout.SmoothAppBarLayout;
+
 public class OffersActivity extends AppCompatActivity implements OnMapReadyCallback
 {
     private final String OFFERS_KEY = "offerItem";
     private final String EXTRA_IMAGE = "com.example.deepdev_03.muvito.TopCollapsingImage";
-    private AppBarLayout appBar;
+    private SmoothAppBarLayout appBar;
     private Toolbar toolbar;
     private CollapsingToolbarLayout collapsingToolbarLayout;
-    //private ImageView collapsingImage;
     private NestedScrollView scrollView;
     private OffersItem item;
     private GoogleMap map;
     private ImageView sellerAvatar, shareWith, shareVk;
-    private Button call, sendEmail;
+    private Button call, sendEmail, toolbarComplain;
     private ViewPager imagePager;
     private ArrayList<Integer> images = new ArrayList<>();
     private RecyclerView recyclerView;
     private TabLayout dotPager;
+    private boolean shouldScroll = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -63,10 +65,11 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         setContentView(R.layout.activity_offer);
 
         Intent intent = getIntent();
-        item = intent.getParcelableExtra(this.OFFERS_KEY);
+        this.item = intent.getParcelableExtra(this.OFFERS_KEY);
         this.findViews();
         this.initToolbar();
         this.setCollapsingToolbarLayout();
+        this.appBarInit();
         this.setImages();
         this.imagePager.setAdapter(new ImageSliderAdapter(getApplicationContext(), this.setSliderImages()));
         this.dotPager.setupWithViewPager(this.imagePager);
@@ -87,12 +90,11 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         LatLng tokyoUniversity = new LatLng(35.7126775, 139.76198899999997);
         this.map.addMarker(new MarkerOptions().position(tokyoUniversity));
         this.map.moveCamera(CameraUpdateFactory.newLatLng(tokyoUniversity));
-
     }
 
     private void findViews()
     {
-        this.appBar = (AppBarLayout) findViewById(R.id.app_bar_offer);
+        this.appBar = (SmoothAppBarLayout) findViewById(R.id.app_bar_offer);
         this.toolbar = (Toolbar) findViewById(R.id.toolbar_offer);
         this.collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_offer);
         this.scrollView = (NestedScrollView) findViewById(R.id.scroll_container_offer);
@@ -103,6 +105,7 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         this.sendEmail = (Button) findViewById(R.id.send_email);
         this.imagePager = (ViewPager) findViewById(R.id.offer_image_pager);
         this.dotPager = (TabLayout) findViewById(R.id.offer_dot_pager);
+        this.toolbarComplain = (Button) findViewById(R.id.complain);
     }
 
     private void initActivityTransitions() {
@@ -125,7 +128,7 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         setSupportActionBar(this.toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_back);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_back_collapsed);
     }
 
     public void OnClick(View view)
@@ -161,13 +164,10 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         paint.setAntiAlias(true);
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(color);
-        // canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
         canvas.drawCircle(bitmap.getWidth() / 2, bitmap.getHeight() / 2,
                 bitmap.getWidth() / 2, paint);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(bitmap, rect, rect, paint);
-        //Bitmap _bmp = Bitmap.createScaledBitmap(output, 60, 60, false);
-        //return _bmp;
         return output;
     }
 
@@ -206,5 +206,27 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         }
 
         return items;
+    }
+
+    private void appBarInit()
+    {
+        this.appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener()
+        {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset)
+            {
+                shouldScroll = Math.abs(verticalOffset) == appBarLayout.getTotalScrollRange();
+                if(collapsingToolbarLayout.getHeight() + verticalOffset < 2 * ViewCompat.getMinimumHeight(collapsingToolbarLayout))
+                {
+                    getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_back_collapsed);
+                    toolbarComplain.setBackgroundResource(R.drawable.ic_action_complain_collapsed);
+                }
+                else
+                {
+                    getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_back_expanded);
+                    toolbarComplain.setBackgroundResource(R.drawable.ic_action_complain_expanded);
+                }
+            }
+        });
     }
 }
