@@ -10,4 +10,5 @@
     <color name="viewBg">#f1f5f8</color>
     <color name="album_title">#4c4c4c</color>
     <color name="recycler_view_bg">#edeaea</color>
+    <color name="blue">#039BE5</color>
 </resources>

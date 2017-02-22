@@ -87,7 +87,6 @@ public class CategoriesActivity extends AppCompatActivity {
         if(fragment == null ) {
             finish();
         } else {
-
             title = (TextView) findViewById(R.id.textViewToolbarCategoriesActivity);
             title.setText("Категория");
 

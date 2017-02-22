@@ -46,7 +46,8 @@
         android:id="@+id/listViewCategoriesActivity"
         android:layout_below="@id/toolbarCategoriesActivity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
     </ListView>
 
     <FrameLayout
