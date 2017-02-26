@@ -1,4 +1,4 @@
-package com.example.deepdev_03.muvito.Adapters.RecyclerView;
+package com.example.deepdev_03.muvito.Utils;
 
 import android.support.v7.widget.RecyclerView;
 

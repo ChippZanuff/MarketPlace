@@ -48,4 +48,5 @@
     <dimen name="elevation_hack">-4dp</dimen>
     <dimen name="collapsing_toolbar_icon_size">24dp</dimen>
     <dimen name="collapsing_toolbar_shadow">100dp</dimen>
+    <dimen name="user_profile_action_bar_height">220dp</dimen>
 </resources>

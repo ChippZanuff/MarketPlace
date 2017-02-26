@@ -25,8 +25,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.deepdev_03.muvito.Adapters.RecyclerView.GridSpacingItemDecoration;
-import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItemsAdapter;
+import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.GridSpacingItemDecoration;
+import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.OfferItemsAdapterWithHeader;
 import com.example.deepdev_03.muvito.Model.OffersItem;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -184,7 +184,7 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
 
     private void initRecyclerView()
     {
-        OfferItemsAdapter adapter = new OfferItemsAdapter(this.getItems());
+        OfferItemsAdapterWithHeader adapter = new OfferItemsAdapterWithHeader(this.getItems());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         View includedRecycler = findViewById(R.id.recycler_view);
         this.recyclerView = (RecyclerView) includedRecycler.findViewById(R.id.recycler_view);

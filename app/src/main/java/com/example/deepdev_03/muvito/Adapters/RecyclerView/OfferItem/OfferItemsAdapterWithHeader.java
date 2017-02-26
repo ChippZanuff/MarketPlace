@@ -1,4 +1,4 @@
-package com.example.deepdev_03.muvito.Adapters.RecyclerView;
+package com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,13 +11,13 @@ import com.example.deepdev_03.muvito.R;
 
 import java.util.ArrayList;
 
-public class OfferItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
+public class OfferItemsAdapterWithHeader extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
     private final ArrayList<OffersItem> items;
     private static final int TYPE_HEADER = 2;
     private static final int TYPE_ITEM = 1;
 
-    public OfferItemsAdapter(ArrayList<OffersItem> items)
+    public OfferItemsAdapterWithHeader(ArrayList<OffersItem> items)
     {
         this.items = items;
     }
@@ -28,7 +28,7 @@ public class OfferItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         Context context = parent.getContext();
         if (viewType == TYPE_ITEM) {
             final View view = LayoutInflater.from(context).inflate(R.layout.recycler_view_card, parent, false);
-            return Viewholder.newInstance(view);
+            return OfferItemHolder.newInstance(view);
         } else if (viewType == TYPE_HEADER) {
             final View view = LayoutInflater.from(context).inflate(R.layout.viewholder_header, parent, false);
             return new HeaderViewHolder(view);
@@ -41,7 +41,7 @@ public class OfferItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     {
         if (!isPositionHeader(position))
         {
-            Viewholder holder = (Viewholder) viewHolder;
+            OfferItemHolder holder = (OfferItemHolder) viewHolder;
             OffersItem item = items.get(position - 2);
             //holder.image.setImageBitmap(item.getImage());
             holder.distance.setText(item.getDistance());

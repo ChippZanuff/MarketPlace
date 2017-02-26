@@ -1,9 +1,11 @@
-package com.example.deepdev_03.muvito;
+package com.example.deepdev_03.muvito.Utils;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-public class ItemClickSupport
+import com.example.deepdev_03.muvito.R;
+
+public class ItemClickSupportWithHeader
 {
     private final RecyclerView recyclerView;
     private OnItemClickListener onItemClickListener;
@@ -46,34 +48,34 @@ public class ItemClickSupport
         }
     };
 
-    private ItemClickSupport(RecyclerView recyclerView) {
+    private ItemClickSupportWithHeader(RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
         this.recyclerView.setTag(R.id.item_click_support, this);
         this.recyclerView.addOnChildAttachStateChangeListener(mAttachListener);
     }
 
-    public static ItemClickSupport addTo(RecyclerView view) {
-        ItemClickSupport support = (ItemClickSupport) view.getTag(R.id.item_click_support);
+    public static ItemClickSupportWithHeader addTo(RecyclerView view) {
+        ItemClickSupportWithHeader support = (ItemClickSupportWithHeader) view.getTag(R.id.item_click_support);
         if (support == null) {
-            support = new ItemClickSupport(view);
+            support = new ItemClickSupportWithHeader(view);
         }
         return support;
     }
 
-    public static ItemClickSupport removeFrom(RecyclerView view) {
-        ItemClickSupport support = (ItemClickSupport) view.getTag(R.id.item_click_support);
+    public static ItemClickSupportWithHeader removeFrom(RecyclerView view) {
+        ItemClickSupportWithHeader support = (ItemClickSupportWithHeader) view.getTag(R.id.item_click_support);
         if (support != null) {
             support.detach(view);
         }
         return support;
     }
 
-    public ItemClickSupport setOnItemClickListener(OnItemClickListener listener) {
+    public ItemClickSupportWithHeader setOnItemClickListener(OnItemClickListener listener) {
         onItemClickListener = listener;
         return this;
     }
 
-    public ItemClickSupport setOnItemLongClickListener(OnItemLongClickListener listener) {
+    public ItemClickSupportWithHeader setOnItemLongClickListener(OnItemLongClickListener listener) {
         onItemLongClickListener = listener;
         return this;
     }
