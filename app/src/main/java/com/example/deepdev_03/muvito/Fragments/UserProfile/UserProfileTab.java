@@ -1,5 +1,6 @@
 package com.example.deepdev_03.muvito.Fragments.UserProfile;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -16,19 +17,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.deepdev_03.muvito.Activities.SettingsActivity;
 import com.example.deepdev_03.muvito.Adapters.UserProfilePagerAdapter;
 import com.example.deepdev_03.muvito.MainActivity;
 import com.example.deepdev_03.muvito.R;
 
-public class UserProfileTab extends Fragment
+public class UserProfileTab extends Fragment implements View.OnClickListener
 {
     private ImageView avatar;
-    private Button details;
+    private ImageButton share, options;
     private TabLayout topTabs;
     private RatingBar ratingBar;
     private TextView userName, userLocation;
@@ -43,6 +45,7 @@ public class UserProfileTab extends Fragment
         View rootView = inflater.inflate(R.layout.user_profile, container, false);
         this.findViews(rootView);
         this.initTopTabs();
+        this.initToolbarButtons();
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
         if(((MainActivity)getActivity()).getSupportActionBar() != null)
         {
@@ -52,11 +55,26 @@ public class UserProfileTab extends Fragment
         return rootView;
     }
 
+    @Override
+    public void onClick(View v)
+    {
+        if(v.getId() == R.id.user_profile_options)
+        {
+            Intent intent = new Intent(getContext(), SettingsActivity.class);
+            startActivity(intent);
+        }
+        else if(v.getId() == R.id.user_profile_details)
+        {
+            System.out.println("yo");
+        }
+    }
+
     private void findViews(View root)
     {
         this.avatar = (ImageView) root.findViewById(R.id.user_profile_avatar);
         this.avatar.setImageBitmap(this.getCroppedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.devka)));
-        this.details = (Button) root.findViewById(R.id.user_profile_details);
+        this.share = (ImageButton) root.findViewById(R.id.user_profile_details);
+        this.options = (ImageButton) root.findViewById(R.id.user_profile_options);
         this.topTabs = (TabLayout) root.findViewById(R.id.user_profile_tabs);
         this.ratingBar = (RatingBar) root.findViewById(R.id.user_profile_ratingBar);
         this.userLocation = (TextView) root.findViewById(R.id.user_profile_location);
@@ -93,6 +111,12 @@ public class UserProfileTab extends Fragment
 
             }
         });
+    }
+
+    private void initToolbarButtons()
+    {
+        this.share.setOnClickListener(this);
+        this.options.setOnClickListener(this);
     }
 
     private Bitmap getCroppedBitmap(Bitmap bitmap)

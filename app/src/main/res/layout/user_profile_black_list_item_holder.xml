@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/black_list_user_avatar"
+        android:layout_width="@dimen/user_avatar"
+        android:layout_height="@dimen/user_avatar"/>
+
+    <TextView
+        android:id="@+id/black_list_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/black_list_user_avatar"
+        android:layout_centerVertical="true"
+        android:text="Name"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/avatar_name_size"/>
+
+    <TextView
+        android:id="@+id/black_list_ban_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="9:30"/>
+
+</RelativeLayout>

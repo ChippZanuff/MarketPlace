@@ -33,7 +33,12 @@
         <activity android:name=".CategoriesActivity" />
         <activity android:name=".AddItemActivity" />
         <activity android:name=".AddLocationActivity" />
-        <activity android:name=".FilterActivity"></activity>
+        <activity android:name=".FilterActivity"/>
+        <activity android:name=".Activities.SettingsActivity"/>
+        <activity android:name=".Activities.Settings.ProfileEdit"/>
+        <activity android:name=".Activities.Settings.PhoneNumberEdit"/>
+        <activity android:name=".Activities.Settings.NumberInput"/>
+        <activity android:name=".Activities.Settings.BlackList"/>
 
         <activity android:name=".OffersActivity"
             android:parentActivityName=".MainActivity" >

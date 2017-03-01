@@ -11,11 +11,11 @@ import com.example.deepdev_03.muvito.R;
 
 import java.util.ArrayList;
 
-public class UserDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
+public class RatingUserListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
     private ArrayList<UserData> items;
 
-    public UserDataAdapter(ArrayList<UserData> items)
+    public RatingUserListAdapter(ArrayList<UserData> items)
     {
         this.items = items;
     }
@@ -25,13 +25,13 @@ public class UserDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     {
         Context context = parent.getContext();
         final View view = LayoutInflater.from(context).inflate(R.layout.user_profile_reviewers_card_view, parent, false);
-        return UserDataHolder.newInstance(view);
+        return RatingUserListHolder.newInstance(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
     {
-        UserDataHolder holder = (UserDataHolder) viewHolder;
+        RatingUserListHolder holder = (RatingUserListHolder) viewHolder;
         UserData item = items.get(position);
         //holder.image.setImageBitmap(item.getImage());
         holder.name.setText(item.getName());

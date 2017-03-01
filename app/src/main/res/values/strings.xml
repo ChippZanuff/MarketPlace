@@ -14,4 +14,8 @@
     <string name="action_play_next">Play Next</string>
     <string name="backdrop_title">LOVE MUSIC</string>
     <string name="backdrop_subtitle">This season top 20 albums</string>
+    <string name="user_profile_number_change_desc2">Для доступа к аккаунту необходимо будет использовать новый номер телефона</string>
+    <string name="user_profile_change_number_button_desc">Указать новый номер</string>
+    <string name="user_profile_change_number_descr1">Все ваши объявления будут перемещены и станут недоступны по старому номеру телефона.</string>
+    <string name="user_profile_change_number_descr0">Изменить номер телефона</string>
 </resources>

@@ -16,7 +16,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.example.deepdev_03.muvito.Adapters.RecyclerView.UserData.UserDataAdapter;
+import com.example.deepdev_03.muvito.Adapters.RecyclerView.UserData.RatingUserListAdapter;
 import com.example.deepdev_03.muvito.Model.UserData;
 import com.example.deepdev_03.muvito.R;
 import com.example.deepdev_03.muvito.Utils.ItemClickSupportWithHeader;
@@ -31,7 +31,7 @@ public class Reviews extends Fragment
     private ArrayList<UserData> items;
     private RecyclerView.LayoutManager layoutManager;
     private LinearLayout tablayoutHolder;
-    private UserDataAdapter itemsAdapter;
+    private RatingUserListAdapter itemsAdapter;
     private NestedScrollView nestedScrollView;
 
     @Nullable
@@ -71,7 +71,7 @@ public class Reviews extends Fragment
     private void initRecyclerView()
     {
         this.layoutManager = new LinearLayoutManager(getContext());
-        this.itemsAdapter = new UserDataAdapter(this.items);
+        this.itemsAdapter = new RatingUserListAdapter(this.items);
         this.recyclerView.setNestedScrollingEnabled(false);
         this.recyclerView.setLayoutManager(this.layoutManager);
         this.recyclerView.setAdapter(this.itemsAdapter);

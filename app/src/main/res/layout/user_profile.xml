@@ -38,21 +38,23 @@
                     android:layout_height="?android:attr/actionBarSize"
                     app:popupTheme="@style/AppTheme.AppBarOverlay">
 
-                    <Button
+                    <ImageButton
                         android:id="@+id/user_profile_options"
                         android:layout_width="@dimen/collapsing_toolbar_icon_size"
                         android:layout_height="@dimen/collapsing_toolbar_icon_size"
                         android:layout_marginLeft="@dimen/activity_horizontal_margin"
                         android:layout_gravity="left"
-                        android:background="@drawable/ic_action_options"/>
+                        android:background="@drawable/ic_action_options"
+                        android:clickable="true"/>
 
-                    <Button
+                    <ImageButton
                         android:id="@+id/user_profile_details"
                         android:layout_width="@dimen/collapsing_toolbar_icon_size"
                         android:layout_height="@dimen/collapsing_toolbar_icon_size"
                         android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:layout_gravity="right"
                         android:background="@drawable/ic_share"
-                        android:layout_gravity="right"/>
+                        />
 
                 </android.support.v7.widget.Toolbar>
 

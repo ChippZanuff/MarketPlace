@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_horizontal">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/profile_change_number_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+
+    <ImageView
+        android:layout_width="@dimen/sim_card_size"
+        android:layout_height="@dimen/sim_card_size"
+        android:src="@drawable/simcard_icon"
+        android:background="@drawable/simcard_bg"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:text="@string/user_profile_change_number_descr0"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:layout_width="@dimen/sim_card_size"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:textAlignment="center"
+        android:text="@string/user_profile_change_number_descr1"/>
+
+    <TextView
+        android:layout_width="@dimen/sim_card_size"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/user_profile_number_change_desc2"/>
+
+    <Button
+        android:id="@+id/user_profile_change_number_button"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/call_sendEmail_height"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/album_title_padding"
+        android:paddingRight="@dimen/album_title_padding"
+        android:text="@string/user_profile_change_number_button_desc"
+        android:textAlignment="center"
+        android:background="@drawable/send_email_button_background"/>
+
+</LinearLayout>
