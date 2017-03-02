@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.deepdev_03.muvito.Activities.Settings.BlackList;
+import com.example.deepdev_03.muvito.Activities.Settings.NotificationSettings;
 import com.example.deepdev_03.muvito.Activities.Settings.PhoneNumberEdit;
 import com.example.deepdev_03.muvito.Activities.Settings.ProfileEdit;
 import com.example.deepdev_03.muvito.AddLocationActivity;
@@ -23,7 +24,7 @@ public class UserProfileMainSettings extends Fragment implements View.OnClickLis
     private TextView profileSummary, profileName, phoneSummary,
             phoneNumber, locationSummary, locationAddress,
             blackList;
-    private RelativeLayout  location, phone, profile;
+    private RelativeLayout location, phone, profile, notificationSettings;
 
     @Nullable
     @Override
@@ -60,6 +61,11 @@ public class UserProfileMainSettings extends Fragment implements View.OnClickLis
             Intent intent = new Intent(getContext(), BlackList.class);
             startActivity(intent);
         }
+        if(v.getId() == R.id.user_profile_notification_settings)
+        {
+            Intent intent = new Intent(getContext(), NotificationSettings.class);
+            startActivity(intent);
+        }
     }
 
     private void setClickListener(View root)
@@ -70,7 +76,10 @@ public class UserProfileMainSettings extends Fragment implements View.OnClickLis
         this.phone.setOnClickListener(this);
         this.profile = (RelativeLayout) root.findViewById(R.id.user_profile_settings_profile);
         this.profile.setOnClickListener(this);
+        this.blackList = (TextView) root.findViewById(R.id.user_profile_settings_black_list);
         this.blackList.setOnClickListener(this);
+        this.notificationSettings = (RelativeLayout) root.findViewById(R.id.user_profile_notification_settings);
+        this.notificationSettings.setOnClickListener(this);
     }
 
     private void findViews(View root)
@@ -84,7 +93,6 @@ public class UserProfileMainSettings extends Fragment implements View.OnClickLis
         this.phoneImg = (ImageView) root.findViewById(R.id.phone_number_icon);
         this.phoneSummary = (TextView) root.findViewById(R.id.phone_number_summary);
         this.phoneNumber = (TextView) root.findViewById(R.id.phone_number_title);
-        this.blackList = (TextView) root.findViewById(R.id.user_profile_settings_black_list);
     }
 
     private void initViews()

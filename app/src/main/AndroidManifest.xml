@@ -40,6 +40,7 @@
         <activity android:name=".Activities.Settings.NumberInput"/>
         <activity android:name=".Activities.Settings.BlackList"/>
         <activity android:name=".Activities.UserProfileActivity"/>
+        <activity android:name=".Activities.Settings.NotificationSettings"/>
 
         <activity android:name=".OffersActivity"
             android:parentActivityName=".MainActivity" >

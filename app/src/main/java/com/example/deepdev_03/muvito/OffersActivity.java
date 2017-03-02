@@ -145,7 +145,6 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
     private void initToolbar()
     {
         setSupportActionBar(this.toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_back_collapsed);
     }
