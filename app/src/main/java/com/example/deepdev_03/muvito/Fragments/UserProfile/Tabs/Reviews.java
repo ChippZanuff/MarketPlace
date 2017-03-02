@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.UserData.RatingUserListAdapter;
 import com.example.deepdev_03.muvito.Model.UserData;
@@ -33,6 +35,7 @@ public class Reviews extends Fragment
     private LinearLayout tablayoutHolder;
     private RatingUserListAdapter itemsAdapter;
     private NestedScrollView nestedScrollView;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Nullable
     @Override
@@ -43,6 +46,7 @@ public class Reviews extends Fragment
         this.items = this.getItems();
         this.initRecyclerView();
         this.initNestedScroll();
+        this.initSwipeRefresh();
 
         return rootView;
     }
@@ -52,6 +56,7 @@ public class Reviews extends Fragment
         this.recyclerView = (RecyclerView) root.findViewById(R.id.user_profile_reviewers_recycler_view);
         this.tablayoutHolder = (LinearLayout) getActivity().findViewById(R.id.main_tablayout_holder);
         this.nestedScrollView = (NestedScrollView) root.findViewById(R.id.user_profile_reviewers_nested_scroll);
+        this.swipeRefreshLayout = (SwipeRefreshLayout) root.findViewById(R.id.user_profile_review_tab_swipe_refresh_layout);
     }
 
     private ArrayList<UserData> getItems()
@@ -101,6 +106,26 @@ public class Reviews extends Fragment
                 {
                     showViews();
                 }
+            }
+        });
+    }
+
+    private void initSwipeRefresh()
+    {
+        this.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+        {
+            @Override
+            public void onRefresh()
+            {
+                Toast.makeText(getActivity().getApplicationContext(), "Start refreshing list", Toast.LENGTH_SHORT).show();
+                swipeRefreshLayout.setRefreshing(true);
+                swipeRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+                        Toast.makeText(getActivity().getApplicationContext(), "End of refreshing", Toast.LENGTH_SHORT).show();
+                    }
+                }, 1000);
             }
         });
     }

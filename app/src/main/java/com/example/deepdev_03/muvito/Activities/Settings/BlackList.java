@@ -4,11 +4,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.deepdev_03.muvito.Adapters.BlackListAdapter;
 import com.example.deepdev_03.muvito.Dialogs.BlackListDialog;
@@ -22,6 +24,7 @@ public class BlackList extends AppCompatActivity
     private Toolbar toolbar;
     private ListView listView;
     private ArrayList<UserData> list;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -32,12 +35,14 @@ public class BlackList extends AppCompatActivity
         this.findViews();
         this.initToolbar();
         this.initList();
+        this.initSwipeRefresh();
     }
 
     private void findViews()
     {
         this.toolbar = (Toolbar) findViewById(R.id.black_list_toolbar);
         this.listView = (ListView) findViewById(R.id.user_profile_black_lists_list_view);
+        this.swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.user_profile_black_list_swipe_refresh_layout);
     }
 
     private void initToolbar()
@@ -84,6 +89,26 @@ public class BlackList extends AppCompatActivity
                 BlackListDialog dialog = new BlackListDialog();
 
                 dialog.show(getSupportFragmentManager(), "ABC");
+            }
+        });
+    }
+
+    private void initSwipeRefresh()
+    {
+        this.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+        {
+            @Override
+            public void onRefresh()
+            {
+                Toast.makeText(getApplicationContext(), "Start refreshing list", Toast.LENGTH_SHORT).show();
+                swipeRefreshLayout.setRefreshing(true);
+                swipeRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+                        Toast.makeText(getApplicationContext(), "End of refreshing", Toast.LENGTH_SHORT).show();
+                    }
+                }, 1000);
             }
         });
     }

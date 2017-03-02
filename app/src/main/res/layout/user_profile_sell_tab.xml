@@ -4,16 +4,23 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/user_profile_sells_nested_scroll"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/user_profile_sell_tab_swipe_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/user_profile_sell_recycler_view"
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/user_profile_sells_nested_scroll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+    
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/user_profile_sell_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
-    </android.support.v4.widget.NestedScrollView>
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

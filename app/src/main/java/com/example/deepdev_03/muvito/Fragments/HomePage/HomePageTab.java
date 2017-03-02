@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +18,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.GridSpacingItemDecoration;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.OfferItemsAdapterWithHeader;
@@ -39,6 +41,7 @@ public class HomePageTab extends Fragment
     private RecyclerView.LayoutManager layoutManager;
     private Toolbar myToolbar;
     private LinearLayout toolbarHolder, tablayoutHolder;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Nullable
     @Override
@@ -48,6 +51,7 @@ public class HomePageTab extends Fragment
         this.findViews(rootView);
         this.items = getItems();
         this.initRecyclerView();
+        this.initSwipeRefresh();
 
         ((MainActivity)getActivity()).setSupportActionBar(myToolbar);
 
@@ -76,6 +80,7 @@ public class HomePageTab extends Fragment
         this.myToolbar = (Toolbar) root.findViewById(R.id.toolbarMainActivity);
         this.editText = (EditText) root.findViewById(R.id.editTextMainActivity);
         this.tablayoutHolder = (LinearLayout) getActivity().findViewById(R.id.main_tablayout_holder);
+        this.swipeRefreshLayout = (SwipeRefreshLayout) root.findViewById(R.id.user_profile_home_tab_swipe_refresh_layout);
     }
 
     private void initRecyclerView()
@@ -112,6 +117,29 @@ public class HomePageTab extends Fragment
                     System.out.println("trying to start offers activity");
                     startActivity(intent);
                 }
+            }
+        });
+    }
+
+    private void initSwipeRefresh()
+    {
+        this.swipeRefreshLayout.setProgressViewOffset(false,
+                getResources().getDimensionPixelOffset(R.dimen.home_tab_swipe_refresh_start),
+                getResources().getDimensionPixelOffset(R.dimen.home_tab_swipe_refresh_end));
+        this.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+        {
+            @Override
+            public void onRefresh()
+            {
+                Toast.makeText(getActivity().getApplicationContext(), "Start refreshing list", Toast.LENGTH_SHORT).show();
+                swipeRefreshLayout.setRefreshing(true);
+                swipeRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+                        Toast.makeText(getActivity().getApplicationContext(), "End of refreshing", Toast.LENGTH_SHORT).show();
+                    }
+                }, 1000);
             }
         });
     }

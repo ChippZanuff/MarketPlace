@@ -4,6 +4,11 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/user_profile_sold_tab_swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/user_profile_sold_nested_scroll"
         android:layout_width="match_parent"
@@ -15,5 +20,7 @@
             android:layout_height="match_parent"/>
 
     </android.support.v4.widget.NestedScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>
