@@ -50,13 +50,13 @@
 
                 <ImageButton
                     android:id="@+id/star"
-                    android:layout_width="@dimen/collapsing_toolbar_icon_size"
-                    android:layout_height="@dimen/collapsing_toolbar_icon_size"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginEnd="10dp"/>
+                    android:padding="10dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
 
             </RelativeLayout>
 

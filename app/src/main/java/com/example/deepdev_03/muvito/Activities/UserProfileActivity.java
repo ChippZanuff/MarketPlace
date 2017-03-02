@@ -13,12 +13,14 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.deepdev_03.muvito.Adapters.UserProfilePagerAdapter;
+import com.example.deepdev_03.muvito.Dialogs.UserProfileDetailsDialog;
 import com.example.deepdev_03.muvito.R;
 
 public class UserProfileActivity extends AppCompatActivity
@@ -41,6 +43,17 @@ public class UserProfileActivity extends AppCompatActivity
         this.findViews();
         this.initTopTabs();
         this.initToolbar();
+
+        this.details.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                UserProfileDetailsDialog dialog = new UserProfileDetailsDialog();
+
+                dialog.show(getSupportFragmentManager(), "ABC");
+            }
+        });
     }
 
     private void findViews()
@@ -64,6 +77,14 @@ public class UserProfileActivity extends AppCompatActivity
             getSupportActionBar().setDisplayShowTitleEnabled(false);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_back_collapsed);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    onBackPressed();
+                }
+            });
         }
     }
 

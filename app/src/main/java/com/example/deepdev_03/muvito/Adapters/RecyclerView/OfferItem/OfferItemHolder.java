@@ -1,6 +1,5 @@
 package com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem;
 
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
@@ -24,7 +23,7 @@ public class OfferItemHolder extends RecyclerView.ViewHolder
         this.distance = distance;
         this.money = money;
         this.starButton = star;
-        this.starButton.setBackgroundDrawable(itemView.getResources().getDrawable(R.drawable.ic_empty_star));
+        this.starButton.setImageResource(R.drawable.ic_empty_star);
         this.starButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -32,13 +31,11 @@ public class OfferItemHolder extends RecyclerView.ViewHolder
             {
                 if(starred)
                 {
-                    Drawable starEmpty = v.getResources().getDrawable(R.drawable.ic_empty_star);
-                    starButton.setBackgroundDrawable(starEmpty);
+                    starButton.setImageResource(R.drawable.ic_empty_star);
                 }
                 else
                 {
-                    Drawable startFilled = v.getResources().getDrawable(R.drawable.ic_full_star);
-                    starButton.setBackgroundDrawable(startFilled);
+                    starButton.setImageResource(R.drawable.ic_full_star);
                 }
 
                 starred = !starred;

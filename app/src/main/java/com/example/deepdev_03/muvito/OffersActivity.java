@@ -23,6 +23,7 @@ import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.GridSpacingItemDecoration;
@@ -50,12 +51,13 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
     private OffersItem item;
     private GoogleMap map;
     private ImageView sellerAvatar, shareWith, shareVk;
-    private Button call, sendEmail, toolbarComplain;
+    private Button call, sendEmail;
+    private ImageButton toolbarComplain, starButton;
     private ViewPager imagePager;
     private ArrayList<Integer> images = new ArrayList<>();
     private RecyclerView recyclerView;
     private TabLayout dotPager;
-    private boolean shouldScroll = false;
+    private boolean shouldScroll = false, starred;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -74,6 +76,22 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         this.imagePager.setAdapter(new ImageSliderAdapter(getApplicationContext(), this.setSliderImages()));
         this.dotPager.setupWithViewPager(this.imagePager);
         this.initRecyclerView();
+        this.starButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if(starred)
+                {
+                    starButton.setImageResource(R.drawable.ic_empty_star);
+                }
+                else
+                {
+                    starButton.setImageResource(R.drawable.ic_full_star);
+                }
+                starred = !starred;
+            }
+        });
 
         ViewCompat.setTransitionName(findViewById(R.id.app_bar_offer), this.EXTRA_IMAGE);
         supportPostponeEnterTransition();
@@ -105,7 +123,8 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         this.sendEmail = (Button) findViewById(R.id.send_email);
         this.imagePager = (ViewPager) findViewById(R.id.offer_image_pager);
         this.dotPager = (TabLayout) findViewById(R.id.offer_dot_pager);
-        this.toolbarComplain = (Button) findViewById(R.id.complain);
+        this.toolbarComplain = (ImageButton) findViewById(R.id.complain);
+        this.starButton = (ImageButton) findViewById(R.id.offer_star_button);
     }
 
     private void initActivityTransitions() {
@@ -219,12 +238,12 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
                 if(collapsingToolbarLayout.getHeight() + verticalOffset < 2 * ViewCompat.getMinimumHeight(collapsingToolbarLayout))
                 {
                     getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_back_collapsed);
-                    toolbarComplain.setBackgroundResource(R.drawable.ic_action_complain_collapsed);
+                    toolbarComplain.setImageResource(R.drawable.ic_action_complain_collapsed);
                 }
                 else
                 {
                     getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_back_expanded);
-                    toolbarComplain.setBackgroundResource(R.drawable.ic_action_complain_expanded);
+                    toolbarComplain.setImageResource(R.drawable.ic_action_complain_expanded);
                 }
             }
         });
