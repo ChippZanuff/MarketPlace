@@ -1,5 +1,6 @@
 package com.example.deepdev_03.muvito.Fragments.UserProfile.Tabs;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.deepdev_03.muvito.Activities.UserProfileActivity;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.UserData.RatingUserListAdapter;
 import com.example.deepdev_03.muvito.Model.UserData;
 import com.example.deepdev_03.muvito.R;
@@ -87,6 +89,8 @@ public class Reviews extends Fragment
             public void onItemClicked(RecyclerView recyclerView, int position, View v)
             {
                 System.out.println("trying to start offers activity with position " + position);
+                Intent intent = new Intent(getActivity().getApplicationContext(), UserProfileActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -132,13 +136,19 @@ public class Reviews extends Fragment
 
     public void hideViews()
     {
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.tablayoutHolder.getLayoutParams();
-        int tabsBottomMargin = lp.bottomMargin;
-        this.tablayoutHolder.animate().translationY(this.tablayoutHolder.getHeight()+tabsBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
+        if(this.tablayoutHolder != null)
+        {
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.tablayoutHolder.getLayoutParams();
+            int tabsBottomMargin = lp.bottomMargin;
+            this.tablayoutHolder.animate().translationY(this.tablayoutHolder.getHeight() + tabsBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
+        }
     }
 
     private void showViews()
     {
-        this.tablayoutHolder.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+        if(this.tablayoutHolder != null)
+        {
+            this.tablayoutHolder.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+        }
     }
 }

@@ -20,35 +20,41 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_marginBottom="@dimen/activity_vertical_margin">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/user_profile_reviewers_avatar"
                     android:layout_width="@dimen/share_icon_size"
                     android:layout_height="@dimen/share_icon_size"
                     android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/devka"/>
 
-                <TextView
-                    android:id="@+id/user_profile_reviewers_name"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/avatar_name_size"
-                    android:text="Name"
-                    android:layout_toRightOf="@+id/user_profile_reviewers_avatar"
-                    android:layout_toEndOf="@+id/user_profile_reviewers_avatar"
-                    />
-
-                <TextView
-                    android:id="@+id/user_profile_review_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/user_profile_reviewers_avatar"
                     android:layout_toRightOf="@id/user_profile_reviewers_avatar"
-                    android:text="date"
-                    android:textSize="@dimen/min_text_size"/>
+                    android:layout_toEndOf="@+id/user_profile_reviewers_avatar">
+
+                    <TextView
+                        android:id="@+id/user_profile_reviewers_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/avatar_name_size"
+                        android:text="Name"/>
+
+                    <TextView
+                        android:id="@+id/user_profile_review_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1sp"
+                        android:text="date"
+                        android:textSize="@dimen/min_text_size"/>
+
+                </LinearLayout>
+
+
 
                 <RatingBar
                     android:id="@+id/user_profile_guest_rating_bar"
@@ -58,6 +64,7 @@
                     style="?android:attr/ratingBarStyleSmall"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginBottom="@dimen/card_margin"/>
 
             </RelativeLayout>

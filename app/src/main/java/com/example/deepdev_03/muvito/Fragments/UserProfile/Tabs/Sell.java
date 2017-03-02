@@ -139,13 +139,19 @@ public class Sell extends Fragment
 
     public void hideViews()
     {
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.tablayoutHolder.getLayoutParams();
-        int tabsBottomMargin = lp.bottomMargin;
-        this.tablayoutHolder.animate().translationY(this.tablayoutHolder.getHeight()+tabsBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
+        if(this.tablayoutHolder != null)
+        {
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.tablayoutHolder.getLayoutParams();
+            int tabsBottomMargin = lp.bottomMargin;
+            this.tablayoutHolder.animate().translationY(this.tablayoutHolder.getHeight() + tabsBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
+        }
     }
 
     private void showViews()
     {
-        this.tablayoutHolder.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+        if(this.tablayoutHolder != null)
+        {
+            this.tablayoutHolder.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+        }
     }
 }
