@@ -55,7 +55,8 @@
     <dimen name="sim_card_size">180dp</dimen>
     <dimen name="home_tab_swipe_refresh_start">18dp</dimen>
     <dimen name="home_tab_swipe_refresh_end">54dp</dimen>
-    <dimen name="summary_size">300sp</dimen>
+    <dimen name="summary_size">270sp</dimen>
+    <dimen name="title_text_size">16.2sp</dimen>
 
     <!-- dimens Roman -->
 </resources>

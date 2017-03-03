@@ -28,10 +28,10 @@
 
             <ImageView
                 android:id="@+id/black_list_profile_icon"
-                android:layout_width="@dimen/ic_album_overflow_width"
-                android:layout_height="@dimen/ic_album_overflow_width"
+                android:layout_width="@dimen/collapsing_toolbar_icon_size"
+                android:layout_height="@dimen/collapsing_toolbar_icon_size"
                 android:layout_margin="@dimen/activity_horizontal_margin"
-                android:background="@drawable/ic_black_list_profile"/>
+                android:src="@drawable/ic_black_list_profile"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -51,10 +51,10 @@
 
             <ImageView
                 android:id="@+id/black_list_unblock_image"
-                android:layout_width="@dimen/ic_album_overflow_width"
-                android:layout_height="@dimen/ic_album_overflow_width"
+                android:layout_width="@dimen/collapsing_toolbar_icon_size"
+                android:layout_height="@dimen/collapsing_toolbar_icon_size"
                 android:layout_margin="@dimen/activity_horizontal_margin"
-                android:background="@drawable/ic_black_list_profile"/>
+                android:src="@drawable/ic_black_list_profile"/>
 
             <TextView
                 android:layout_width="wrap_content"

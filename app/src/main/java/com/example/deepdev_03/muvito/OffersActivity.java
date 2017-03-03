@@ -27,6 +27,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.GridSpacingItemDecoration;
+import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.OfferItemsAdapter;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.OfferItemsAdapterWithHeader;
 import com.example.deepdev_03.muvito.Model.OffersItem;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -50,7 +51,7 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
     private NestedScrollView scrollView;
     private OffersItem item;
     private GoogleMap map;
-    private ImageView sellerAvatar, shareWith, shareVk;
+    private ImageView sellerAvatar, shareVk;
     private Button call, sendEmail;
     private ImageButton toolbarComplain, starButton;
     private ViewPager imagePager;
@@ -117,7 +118,6 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
         this.collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_offer);
         this.scrollView = (NestedScrollView) findViewById(R.id.scroll_container_offer);
         this.shareVk = (ImageView) findViewById(R.id.vk_share);
-        this.shareWith = (ImageView) findViewById(R.id.share_another_way);
         this.sellerAvatar = (ImageView) findViewById(R.id.sellers_avatar);
         this.call = (Button) findViewById(R.id.call_action);
         this.sendEmail = (Button) findViewById(R.id.send_email);
@@ -202,7 +202,7 @@ public class OffersActivity extends AppCompatActivity implements OnMapReadyCallb
 
     private void initRecyclerView()
     {
-        OfferItemsAdapterWithHeader adapter = new OfferItemsAdapterWithHeader(this.getItems());
+        OfferItemsAdapter adapter = new OfferItemsAdapter(this.getItems());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         View includedRecycler = findViewById(R.id.recycler_view);
         this.recyclerView = (RecyclerView) includedRecycler.findViewById(R.id.recycler_view);
