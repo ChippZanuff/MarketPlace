@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textSize="@dimen/title_text_size"
             android:text="name"/>
 
         <RelativeLayout
@@ -30,7 +31,9 @@
                 android:id="@+id/black_list_profile_icon"
                 android:layout_width="@dimen/collapsing_toolbar_icon_size"
                 android:layout_height="@dimen/collapsing_toolbar_icon_size"
-                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_centerVertical="true"
                 android:src="@drawable/ic_black_list_profile"/>
 
             <TextView
@@ -53,8 +56,10 @@
                 android:id="@+id/black_list_unblock_image"
                 android:layout_width="@dimen/collapsing_toolbar_icon_size"
                 android:layout_height="@dimen/collapsing_toolbar_icon_size"
-                android:layout_margin="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_black_list_profile"/>
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:background="@drawable/ic_black_list_profile"/>
 
             <TextView
                 android:layout_width="wrap_content"
