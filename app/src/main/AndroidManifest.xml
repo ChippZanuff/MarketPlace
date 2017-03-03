@@ -33,7 +33,8 @@
         <activity android:name=".CategoriesActivity" />
         <activity android:name=".AddItemActivity" />
         <activity android:name=".AddLocationActivity" />
-        <activity android:name=".FilterActivity"></activity>
+        <activity android:name=".FilterActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize"></activity>
 
         <activity android:name=".OffersActivity"
             android:parentActivityName=".MainActivity" >

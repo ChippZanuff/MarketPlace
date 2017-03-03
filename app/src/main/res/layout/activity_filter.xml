@@ -30,7 +30,7 @@
             android:textSize="20sp"
             android:text="Фильтр"
             android:layout_marginLeft="40dp"
-            android:textColor="#000"
+            android:textColor="@color/text_black"
             android:id="@+id/textViewToolbarFilterActivity"
             />
 
@@ -46,323 +46,443 @@
 
     </android.support.v7.widget.Toolbar>
 
-
-    <TableLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tableLayoutFilterActivity"
         android:layout_below="@id/toolbarFilterActivity">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tableRowCategory"
-            android:onClick="onClickTableRow">
-            <ImageView
-                android:src="@drawable/view_grid"
-                android:layout_gravity="center"
-                android:layout_marginLeft="15dp" />
-            <RelativeLayout
-                android:layout_marginLeft="15dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="13sp"
-                    android:text="Изменить категорию"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="17dp"
-                    android:textColor="#9b9797"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="15sp"
-                    android:text="Категория"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="17dp"
-                    android:textColor="#000"/>
-            </RelativeLayout>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="#dcdbdb"
-                android:padding="2dip" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tableRowLocation"
-            android:onClick="onClickTableRow">
-            <ImageView
-                android:src="@drawable/map_marker"
-                android:layout_gravity="center"
-                android:layout_marginLeft="15dp"/>
-            <RelativeLayout
-                android:layout_marginLeft="15dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="13sp"
-                    android:text="Изменить местоположение"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="17dp"
-                    android:textColor="#9b9797"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="15sp"
-                    android:text="Местоположение"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="17dp"
-                    android:textColor="#000"/>
-            </RelativeLayout>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-
-        <TableRow
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:src="@drawable/map_marker_radius"
-                android:layout_gravity="center"
-                android:layout_marginLeft="15dp"/>
 
-            <RelativeLayout
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:id="@+id/textViewFilterDistance"
-                    android:textSize="13sp"
-                    android:layout_marginLeft="15dp"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="17dp"
-                    android:textColor="#9b9797"/>
-                <SeekBar
-                    android:id="@+id/seekBarDistance"
+                android:layout_height="wrap_content"
+                android:id="@+id/tableLayoutFilterActivity">
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="30dp" />
-            </RelativeLayout>
-        </TableRow>
+                    android:id="@+id/tableRowCategory"
+                    android:onClick="onClickTableRow"
+                    android:background="@color/colorWhite">
+                    <ImageView
+                        android:src="@drawable/view_grid"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp" />
+                    <RelativeLayout
+                        android:layout_marginLeft="15dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:textSize="13sp"
+                            android:text="Изменить категорию"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="17dp"
+                            android:textColor="@color/text_grey"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:textSize="15sp"
+                            android:text="Категория"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="17dp"
+                            android:textColor="@color/text_black"/>
+                    </RelativeLayout>
+                </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="#dcdbdb"
-                android:padding="2dip" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:layout_weight="1"
+                        android:background="@color/filter_line"
+                        android:padding="2dip" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <View
+                        android:layout_height="15dp"
+                        android:layout_weight="1"
+                        android:background="@color/filter_separator"
+                        android:padding="2dip" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <View
+                        android:layout_height="1dip"
+                        android:layout_weight="1"
+                        android:background="@color/filter_line"
+                        android:padding="2dip" />
+                </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="#dcdbdb"
-                android:padding="2dip" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-    </TableLayout>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tableRowLocation"
+                    android:background="@color/colorWhite">
+                    <ImageView
+                        android:src="@drawable/map_marker"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"/>
+                    <RelativeLayout
+                        android:layout_marginLeft="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:textSize="13sp"
+                            android:text="Изменить местоположение"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="17dp"
+                            android:textColor="@color/text_grey"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:textSize="15sp"
+                            android:text="Местоположение"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="17dp"
+                            android:textColor="@color/text_black"/>
+                    </RelativeLayout>
+                </TableRow>
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <View
+                        android:layout_height="1dip"
+                        android:layout_weight="1"
+                        android:background="@color/filter_line"
+                        android:padding="2dip" />
+                </TableRow>
 
-    <TableLayout
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite">
+                    <ImageView
+                        android:src="@drawable/map_marker_radius"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:id="@+id/textViewFilterDistance"
+                            android:textSize="13sp"
+                            android:layout_marginLeft="15dp"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="17dp"
+                            android:textColor="@color/text_grey"/>
+                        <SeekBar
+                            android:id="@+id/seekBarDistance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginRight="5dp"/>
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <View
+                        android:layout_height="1dip"
+                        android:layout_weight="1"
+                        android:background="@color/filter_line"
+                        android:padding="2dip" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <View
+                        android:layout_height="15dp"
+                        android:layout_weight="1"
+                        android:background="@color/filter_separator"
+                        android:padding="2dip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <View
+                        android:layout_height="1dip"
+                        android:layout_weight="1"
+                        android:background="@color/filter_line"
+                        android:padding="2dip" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tableLayoutFilterActivity"
+                android:id="@+id/tableLayoutFilterActivitySecond">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_ruble"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:focusableInTouchMode="true"/>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="55dp"
+                                android:textSize="14sp"
+                                android:text="Цена от (\u20BD)"
+                                android:gravity="center_vertical"
+                                android:layout_marginBottom="25dp"
+                                android:textColor="@color/text_grey"/>
+
+                            <EditText
+                                android:id="@+id/editTextMinPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:hint="Мин."
+                                android:textSize="16sp"
+                                android:background="@android:color/transparent"
+                                android:inputType="numberDecimal"
+                                android:digits="0123456789 "
+                                android:layout_marginTop="42dp"
+                                />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:textSize="14sp"
+                            android:text="Цена до (\u20BD)"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="25dp"
+                            android:textColor="@color/text_grey"/>
+                        <EditText
+                            android:id="@+id/editTextMaxPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:hint="Макс."
+                            android:textSize="16sp"
+                            android:background="@android:color/transparent"
+                            android:inputType="numberDecimal"
+                            android:digits="0123456789."
+                            android:layout_marginTop="42dp"
+                            android:maxLength="10"/>
+                    </RelativeLayout>
+                </LinearLayout>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <View
+                        android:layout_height="1dip"
+                        android:layout_weight="1"
+                        android:background="@color/filter_line"
+                        android:padding="2dip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:layout_height="15dp"
+                        android:layout_weight="1"
+                        android:background="@color/filter_separator"
+                        android:padding="2dip" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <View
+                        android:layout_height="1dip"
+                        android:layout_weight="1"
+                        android:background="@color/filter_line"
+                        android:padding="2dip" />
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tableLayoutFilterActivityThird"
+                android:layout_below="@id/tableLayoutFilterActivitySecond">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tableRowView"
+                    android:onClick="onClickTableRow"
+                    android:background="@color/colorWhite">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:textSize="13sp"
+                            android:text="Вид главной"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="17dp"
+                            android:textColor="@color/text_grey"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:textSize="15sp"
+                            android:id="@+id/textViewFilterView"
+                            android:text="Списком"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="17dp"
+                            android:textColor="@color/text_black"/>
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <View
+                        android:layout_height="1dip"
+                        android:layout_weight="1"
+                        android:background="@color/filter_line"
+                        android:padding="2dip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tableRowSort"
+                    android:onClick="onClickTableRow"
+                    android:background="@color/colorWhite">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:textSize="13sp"
+                            android:text="Сортировка"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="17dp"
+                            android:textColor="@color/text_grey"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:textSize="15sp"
+                            android:id="@+id/textViewFilterSort"
+                            android:text="По умолчанию"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="17dp"
+                            android:textColor="@color/text_black"/>
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:layout_height="1dip"
+                        android:layout_weight="1"
+                        android:background="@color/filter_line"
+                        android:padding="2dip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tableRowPublished"
+                    android:onClick="onClickTableRow"
+                    android:background="@color/colorWhite">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:textSize="13sp"
+                            android:text="Опубликовано"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="17dp"
+                            android:textColor="@color/text_grey"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:textSize="15sp"
+                            android:text="За все время"
+                            android:id="@+id/textViewFilterPublished"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="17dp"
+                            android:textColor="@color/text_black"/>
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <View
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:padding="2dip" />
+                </TableRow>
+            </TableLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tableLayoutFilterActivitySecond"
-        android:layout_below="@id/tableLayoutFilterActivity">
-
-        <TableRow
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="#FFF"
+        android:layout_alignParentBottom="true">
+        <View
             android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/filter_line" />
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tableRowView"
-            android:onClick="onClickTableRow">
+            android:background="@null"
+            android:text="Сбросить фильтр"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/blue"/>
+    </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="13sp"
-                    android:text="Вид главной"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="17dp"
-                    android:textColor="#9b9797"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="15sp"
-                    android:text="Списком"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="17dp"
-                    android:textColor="#000"/>
-            </RelativeLayout>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-
-
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tableRowSort"
-            android:onClick="onClickTableRow">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="13sp"
-                    android:text="Сортировка"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="17dp"
-                    android:textColor="#9b9797"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="15sp"
-                    android:text="По умолчанию"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="17dp"
-                    android:textColor="#000"/>
-            </RelativeLayout>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <View
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tableRowPublished"
-            android:onClick="onClickTableRow">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="13sp"
-                    android:text="Опубликовано"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="17dp"
-                    android:textColor="#9b9797"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="15sp"
-                    android:text="За все время"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="17dp"
-                    android:textColor="#000"/>
-            </RelativeLayout>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-    </TableLayout>
 </RelativeLayout>

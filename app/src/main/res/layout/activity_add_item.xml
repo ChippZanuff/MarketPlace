@@ -5,6 +5,7 @@
     android:id="@+id/activity_add_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/filter_separator"
     tools:context="com.example.deepdev_03.muvito.AddItemActivity">
 
     <android.support.v7.widget.Toolbar
@@ -46,227 +47,310 @@
             />
     </android.support.v7.widget.Toolbar>
 
-    <TableLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbarAddItemActivity"
-        android:id="@+id/tableLayoutAddItemActivity">
+        android:layout_below="@id/toolbarAddItemActivity">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tableRow">
-        </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tableLayoutAddItemActivity">
-
-        <TableRow
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayoutPhotosAddItemActivity"
+            android:background="@color/colorWhite">
+
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu_camera"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"/>
-            <EditText
+                android:id="@+id/tableRow">
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tableLayoutPhotosAddItemActivity"
+            android:id="@+id/tableLayoutAddItemActivity"
+            android:background="@color/colorWhite">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/format_title"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"/>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:inputType="textPersonName"
+                    android:background="@android:color/transparent"
+                    android:hint="Название товара"
+                    android:ems="20"
+                    android:maxLength="50"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="20dp">
+                    </EditText>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@color/filter_line"
+                    android:padding="2dip" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:textSize="15sp"
-                android:inputType="textPersonName"
-                android:background="@android:color/transparent"
-                android:hint="Название товара"
-                android:ems="20"
-                android:layout_marginLeft="20dp">
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_ruble"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"/>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/editTextPrice"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="15dp"
+                    android:inputType="numberDecimal"
+                    android:background="@android:color/transparent"
+                    android:hint="Стоимость, ₽"
+                    android:ems="20">
                 </EditText>
-        </TableRow>
+            </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
+                android:layout_height="wrap_content" >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@color/filter_line"
+                    android:padding="2dip" />
+            </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu_camera"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"/>
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:id="@+id/editTextPrice"
-                android:textSize="15sp"
-                android:layout_marginLeft="20dp"
-                android:inputType="numberDecimal"
-                android:background="@android:color/transparent"
-                android:hint="Стоимость, ₽"
-                android:ems="20">
-            </EditText>
-        </TableRow>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_subject_black_24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"/>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="50dp"
+                    android:inputType="textMultiLine"
+                    android:textSize="15sp"
+                    android:background="@android:color/transparent"
+                    android:hint="Описание (до 500 символов)"
+                    android:ems="20"
+                    android:maxLength="500"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="20dp">
+                </EditText>
+            </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
+                android:layout_height="wrap_content" >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@color/filter_line"
+                    android:padding="2dip" />
+            </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu_camera"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"/>
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:inputType="textMultiLine"
-                android:textSize="15sp"
-                android:background="@android:color/transparent"
-                android:hint="Описание (до 500 символов)"
-                android:ems="20"
-                android:layout_marginLeft="20dp">
-            </EditText>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="#dcdbdb"
-                android:padding="2dip" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickCategoriesAddItemActivity">
-            <ImageView
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu_camera"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"/>
+                >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/filter_separator"
+                    android:padding="2dip" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@color/filter_line"
+                    android:padding="2dip" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickCategoriesAddItemActivity">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_offer"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15sp"
+                    android:text="Категория"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/text_grey"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@color/filter_line"
+                    android:padding="2dip" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/filter_separator"
+                    android:padding="2dip" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@color/filter_line"
+                    android:padding="2dip" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tableRowLocation"
+                android:onClick="onClickLocationAddItemActivity"
+                android:background="@color/colorWhite">
+                <ImageView
+                    android:src="@drawable/map_marker"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp" />
+                <RelativeLayout
+                    android:layout_marginLeft="15dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="65dp"
+                        android:textSize="15sp"
+                        android:text="Изменить местоположение"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="17dp"
+                        android:textColor="@color/text_grey"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:text="Местоположение"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="17dp"
+                        android:textColor="@color/text_black"/>
+                </RelativeLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@color/filter_line"
+                    android:padding="2dip" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <View
+                    android:layout_height="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/filter_separator"
+                    android:padding="2dip" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <View
+                    android:layout_height="1dip"
+                    android:layout_weight="1"
+                    android:background="@color/filter_line"
+                    android:padding="2dip" />
+            </TableRow>
+
+        </TableLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@id/tableLayoutAddItemActivity"
+            android:id="@+id/layoutShare"
+            android:background="@color/colorWhite">
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:textSize="15sp"
-                android:text="Категория"
-                android:gravity="center_vertical"
-                android:textColor="#bab6b6"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="#dcdbdb"
-                android:padding="2dip" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dip"
-                android:layout_weight="1"
-                android:background="#bab6b6"
-                android:padding="2dip" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickLocationAddItemActivity">
-            <ImageView
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu_camera"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
+                android:textSize="16sp"
                 android:layout_marginLeft="20dp"
-                android:textSize="15sp"
-                android:text="Местоположение"
+                android:layout_centerVertical="true"
+                android:text="Поделиться ВКонтакте"
                 android:gravity="center_vertical"
-                android:textColor="#bab6b6"/>
-        </TableRow>
+                android:textColor="@color/text_black"/>
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:checked="true"
+                android:id="@+id/switchAddItem"
+                android:theme="@style/Color1SwitchStyle" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+        </RelativeLayout>
+
             <View
-                android:layout_width="match_parent"
                 android:layout_height="1dip"
+                android:layout_width="match_parent"
+                android:layout_below="@id/layoutShare"
                 android:layout_weight="1"
-                android:background="#bab6b6"
+                android:background="@color/filter_line"
                 android:padding="2dip" />
-        </TableRow>
 
-    </TableLayout>
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

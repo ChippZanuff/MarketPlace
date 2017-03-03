@@ -5,10 +5,16 @@
     <color name="colorAccent">#FF4081</color>
     <color name="distanceBackgroundColor">#69000000</color>
     <color name="colorGreen">#26ec18</color>
+    <color name="colorWhite">#FFF</color>
     <color name="colorYellow">#cce60c</color>
     <color name="colorRed">#ff1303</color>
     <color name="viewBg">#f1f5f8</color>
     <color name="album_title">#4c4c4c</color>
     <color name="recycler_view_bg">#edeaea</color>
-    <color name="blue">#039BE5</color>
+    <color name="blue">#47a7d7</color>
+    <color name="filter_separator">#f9f9f9</color>
+    <color name="filter_line">#ebebeb</color>
+    <color name="text_black">#323232</color>
+    <color name="text_grey">#8c8c8c</color>
+    <color name="icon_grey">#8f8f8f</color>
 </resources>

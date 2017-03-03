@@ -39,11 +39,13 @@ public class CategoriesActivity extends AppCompatActivity {
                 "Бытовая техника", "Для дома и дачи", "Ремонт и строительство", "Красота и здоровье", "Спорт и отдых",
                 "Хобби и развлечения", "Музыкальные инструменты", "Животные", "Услуги", "Прочее"};
 
+        final int images [] = { R.drawable.view_grid, R.drawable.ic_skirt, R.drawable.ic_polo, R.drawable.ic_rocking_horse,
+                R.drawable.ic_button, R.drawable.ic_car, R.drawable.ic_smartphone, R.drawable.ic_photo_camera,
+                R.drawable.ic_television, R.drawable.ic_socket, R.drawable.ic_washing_machine, R.drawable.ic_sofa,
+                R.drawable.ic_tools, R.drawable.ic_mortar, R.drawable.ic_basketball, R.drawable.ic_game_controller,
+                R.drawable.ic_trumpet, R.drawable.ic_dog,R.drawable.ic_portfolio, R.drawable.ic_pacman };
 
-        ArrayAdapter <String> adapter = new ArrayAdapter<String>(this,
-                R.layout.categories_item, R.id.textViewCategoriesItem, categories);
-
-        listView.setAdapter(adapter);
+        listView.setAdapter(new CategoriesAdapter(this,categories,images));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
