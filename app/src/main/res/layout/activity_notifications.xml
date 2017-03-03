@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/messages_summary"
-            android:layout_width="300sp"
+            android:layout_width="@dimen/summary_size"
             android:layout_height="wrap_content"
             android:layout_below="@+id/messages_title"
             android:layout_alignLeft="@android:id/title"

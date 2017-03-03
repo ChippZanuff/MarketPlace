@@ -1,5 +1,6 @@
 package com.example.deepdev_03.muvito.Dialogs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -12,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.deepdev_03.muvito.Activities.UserProfileActivity;
 import com.example.deepdev_03.muvito.R;
 
 public class BlackListDialog extends DialogFragment implements View.OnClickListener
@@ -64,13 +66,15 @@ public class BlackListDialog extends DialogFragment implements View.OnClickListe
     {
         if(v.getId() == R.id.black_list_profile_holder)
         {
-            Toast.makeText(getActivity().getApplicationContext(), "asd", Toast.LENGTH_SHORT).show();
             getDialog().dismiss();
+            Intent intent = new Intent(getActivity(), UserProfileActivity.class);
+            startActivity(intent);
         }
         if(v.getId() == R.id.black_list_unblock_holder)
         {
-            Toast.makeText(getActivity().getApplicationContext(), "asd", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity().getApplicationContext(), "Разблокировали!", Toast.LENGTH_SHORT).show();
             getDialog().dismiss();
+
         }
     }
 }

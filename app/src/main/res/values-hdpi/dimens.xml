@@ -22,6 +22,8 @@
     <dimen name="ic_album_overflow_height">30dp</dimen>
     <dimen name="ic_album_overflow_margin_top">10dp</dimen>
 
+    <!-- dimens vavan -->
+
     <dimen name="elevation">3.6dp</dimen>
     <dimen name="burger_button">22.5dp</dimen>
     <dimen name="search_margin">27dp</dimen>
@@ -53,4 +55,7 @@
     <dimen name="sim_card_size">180dp</dimen>
     <dimen name="home_tab_swipe_refresh_start">18dp</dimen>
     <dimen name="home_tab_swipe_refresh_end">54dp</dimen>
+    <dimen name="summary_size">300sp</dimen>
+
+    <!-- dimens Roman -->
 </resources>

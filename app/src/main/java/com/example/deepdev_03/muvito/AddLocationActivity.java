@@ -38,4 +38,9 @@ public class AddLocationActivity extends AppCompatActivity implements OnMapReady
         this.map.addMarker(new MarkerOptions().position(tokyoUniversity));
         this.map.moveCamera(CameraUpdateFactory.newLatLng(tokyoUniversity));
     }
+
+    // TODO: notification summary size; profile edit toolbar text size;
+    // TODO: black list date kudato propala;
+    // TODO: black list dialog img size;
+    //TODO: offers activity textview похожие объявления; hide 3 tochki share with
 }

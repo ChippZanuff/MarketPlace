@@ -1,39 +1,29 @@
 package com.example.deepdev_03.muvito;
 
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Selection;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.redmadrobot.inputmask.MaskedTextChangedListener;
-import com.redmadrobot.inputmask.PolyMaskTextChangedListener;
+import com.example.deepdev_03.muvito.Utils.NumbersFormatter;
 
-import java.lang.ref.WeakReference;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
-
-import static android.R.id.edit;
 
 public class FilterActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
@@ -43,6 +33,59 @@ public class FilterActivity extends AppCompatActivity implements View.OnFocusCha
     TableRow tableRowView, tableRowSort, tableRowPublished, tableRowCategory, tableRowLocation;
     TextView textViewView, textViewSort, textViewPublished;
     EditText editTextMinPrice, editTextMaxPrice;
+    private boolean isEmptyEditText = false;
+    private boolean isEditText = false;
+    /*private TextWatcher watcher = new TextWatcher() {
+
+        int minPrice;
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if (!s.toString().contains("\u20BD")) {
+                String text = editTextMinPrice.getText().toString();
+                editTextMinPrice.setText(text + "\u20BD");
+                isEmptyEditText = false;
+            }
+
+            if (editTextMinPrice.getText().length() == 1) {
+                editTextMinPrice.removeTextChangedListener(watcher);             // remove the listener
+                editTextMinPrice.setText("");        // update the text
+                editTextMinPrice.addTextChangedListener(watcher);
+                Selection.setSelection(editTextMinPrice.getText(), editTextMinPrice.getText().length());
+            }
+            else{
+                Selection.setSelection(editTextMinPrice.getText(), editTextMinPrice.getText().length()-1);
+            }
+
+                DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.ENGLISH);
+
+                DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
+                symbols.setGroupingSeparator('\u2008');
+
+                formatter.setDecimalFormatSymbols(symbols);
+
+                String str = editTextMinPrice.getText().toString().substring(0, editTextMinPrice.length() - 1);
+
+                minPrice = Integer.parseInt(str);
+
+                isEditText=true;
+                editTextMinPrice.removeTextChangedListener(watcher);
+                editTextMinPrice.setText(minPrice + "\u20BD");
+                editTextMinPrice.addTextChangedListener(watcher);
+                Log.e("Formatted: ", formatter.format(minPrice));
+
+        }
+    };*/
 
 
 
@@ -73,8 +116,6 @@ public class FilterActivity extends AppCompatActivity implements View.OnFocusCha
         editTextMaxPrice = (EditText) findViewById(R.id.editTextMaxPrice);
 
 
-
-
         seekBar.getProgressDrawable().setColorFilter(
                 getResources().getColor(R.color.blue), android.graphics.PorterDuff.Mode.SRC_IN);
         seekBar.getThumb().setColorFilter(
@@ -102,9 +143,11 @@ public class FilterActivity extends AppCompatActivity implements View.OnFocusCha
             }
         });
 
-editTextMinPrice.setOnFocusChangeListener(this);
+        //editTextMinPrice.setOnFocusChangeListener(this);
 
-        final MaskedTextChangedListener listener = new MaskedTextChangedListener(
+        this.initEditText();
+
+        /*final MaskedTextChangedListener listener = new MaskedTextChangedListener(
                 "[000] [000] [000]",
                 true,
                 editTextMinPrice,
@@ -119,7 +162,7 @@ editTextMinPrice.setOnFocusChangeListener(this);
         );
 
         editTextMinPrice.addTextChangedListener(listener);
-        editTextMinPrice.setOnFocusChangeListener(listener);
+        editTextMinPrice.setOnFocusChangeListener(listener);*/
 //        editTextMinPrice.setHint(listener.placeholder());
 
 
@@ -190,24 +233,21 @@ editTextMinPrice.setOnFocusChangeListener(this);
 //            }
 //        );
 
-        editTextMaxPrice.setOnKeyListener(new View.OnKeyListener()
-            {
-                public boolean onKey(View v, int keyCode, KeyEvent event)
-                {
+        editTextMaxPrice.setOnKeyListener(new View.OnKeyListener() {
+                                              public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-                    if(event.getAction() == KeyEvent.ACTION_DOWN &&
-                            (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                        editTextMaxPrice.setText(editTextMaxPrice.getText() + "\u20BD");
-                        return true;
-                    }
-                    return false;
-                }
-            }
+                                                  if (event.getAction() == KeyEvent.ACTION_DOWN &&
+                                                          (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                                                      editTextMaxPrice.setText(editTextMaxPrice.getText() + "\u20BD");
+                                                      return true;
+                                                  }
+                                                  return false;
+                                              }
+                                          }
         );
 
 
     }
-
 
 
     public void setDistance() {
@@ -234,9 +274,7 @@ editTextMinPrice.setOnFocusChangeListener(this);
     }
 
 
-
-
-    public void onClickTableRow (View view) {
+    public void onClickTableRow(View view) {
 
         AlertDialog.Builder alert = new AlertDialog.Builder(FilterActivity.this);
         alert.setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
@@ -248,12 +286,12 @@ editTextMinPrice.setOnFocusChangeListener(this);
 
         switch (view.getId()) {
             case R.id.tableRowCategory:
-                Intent intent_categories = new Intent(getApplicationContext(),CategoriesActivity.class);
+                Intent intent_categories = new Intent(getApplicationContext(), CategoriesActivity.class);
                 startActivity(intent_categories);
                 break;
 
             case R.id.tableRowLocation:
-                Intent intent_location = new Intent(getApplicationContext(),AddLocationActivity.class);
+                Intent intent_location = new Intent(this, AddLocationActivity.class);
                 startActivity(intent_location);
                 break;
 
@@ -324,8 +362,15 @@ editTextMinPrice.setOnFocusChangeListener(this);
 
 
     }
+
     public void onClickCloseFilter(View view) {
         finish();
+    }
+
+    private void initEditText()
+    {
+        this.editTextMinPrice.addTextChangedListener(new NumbersFormatter(editTextMinPrice));
+        this.editTextMaxPrice.addTextChangedListener(new NumbersFormatter(editTextMaxPrice));
     }
 }
 
