@@ -19,6 +19,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="Color1SwitchStyle">
+        <item name="colorControlActivated">@color/blue</item>
+    </style>
+
     <style name="DialogAnimation">
         <item name="android:windowEnterAnimation">@anim/dialog_slide_from_bottom</item>
         <item name="android:windowExitAnimation">@anim/dialog_slide_to_bottom</item>

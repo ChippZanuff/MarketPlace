@@ -1,0 +1,13 @@
+<vector android:height="24dp" android:viewportHeight="350.74"
+    android:viewportWidth="350.74" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#804C09" android:pathData="M72.7,129.3c0,0 -2.3,-25.6 -32.6,-25.6c-30.3,0 -35.9,38.7 -31.2,56.8l8.4,-4.2c0,0 9.3,47 -17.2,58.7c0,0 54.5,19.6 61.5,-50.3"/>
+    <path android:fillColor="#FF9811" android:pathData="M316.6,26.9l11.9,-16.8C221.2,-15.9 214.6,110.7 214.6,110.7s-0.9,0 -2.5,0c-0,-0 -0,-0.1 -0.1,-0.1c-14.9,0 -87.9,0 -99.3,0c-12.7,0 -37.6,5.9 -53.1,25.9c-38,49 35,177.6 35,177.6h140c0,0 44.6,-50.3 44.6,-143.4c0,-35.8 1.5,-46.8 6.7,-57c5.1,-10.2 17.6,-14.4 27.8,-9.2c2.8,1.4 5.2,3.4 7,5.7l30,-15L316.6,26.9z"/>
+    <path android:fillColor="#BE720D" android:pathData="M164.7,110.6c-22.7,0 -45.9,0 -51.9,0c-12.7,0 -37.6,5.9 -53.1,25.9c-38,49 35,177.6 35,177.6h70V110.6z"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M214.7,314.2v-40c0,-27.6 -22.4,-50 -50,-50c-27.6,0 -50,22.4 -50,50v40H214.7z"/>
+    <path android:fillColor="#804C09" android:pathData="M294.7,68.2m-7.5,0a7.5,7.5 0,1 1,15 0a7.5,7.5 0,1 1,-15 0"/>
+    <path android:fillColor="#BE720D" android:pathData="M296.9,266.4c-38.4,23.9 -83.7,37.8 -132.2,37.8S70.8,290.3 32.5,266.4L3.5,295.3c46.1,30.9 101.5,48.9 161.1,48.9s115,-18 161.1,-48.9L296.9,266.4z"/>
+    <path android:fillColor="#804C09" android:pathData="M164.7,304.2c-48.5,0 -93.9,-13.9 -132.2,-37.8L3.5,295.3c46.1,30.9 101.5,48.9 161.1,48.9L164.7,304.2L164.7,304.2z"/>
+    <path android:fillColor="#804C09" android:pathData="M214.6,140.7h28.7l1.3,-28.4c0.1,-1.2 1.7,-22.6 10.9,-42.8c4.8,-10.5 10.3,-17.7 15.9,-22.6c4.4,-3.8 8.9,-6.3 13.3,-7.8V8.1c-65.4,13 -70,102.6 -70,102.6s-0,0 -0.1,0v30h0.1V140.7z"/>
+    <path android:fillColor="#EA348B" android:pathData="M164.7,110.6h-50v33.6c0,27.6 22.4,50 50,50s50,-22.4 50,-50v-33.6C214.7,110.6 164.7,110.6 164.7,110.6z"/>
+    <path android:fillColor="#AF2768" android:pathData="M114.7,110.6v33.6c0,27.6 22.4,50 50,50c0,-33 0,-83.6 0,-83.6S114.7,110.6 114.7,110.6z"/>
+</vector>
