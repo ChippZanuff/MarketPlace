@@ -49,4 +49,8 @@
     <dimen name="collapsing_toolbar_icon_size">26.4dp</dimen>
     <dimen name="collapsing_toolbar_shadow">110dp</dimen>
     <dimen name="user_profile_action_bar_height">242dp</dimen>
+    <dimen name="fab_anchor_hack">-23.1dp</dimen>
+    <dimen name="sim_card_size">220dp</dimen>
+    <dimen name="home_tab_swipe_refresh_start">22dp</dimen>
+    <dimen name="home_tab_swipe_refresh_end">66dp</dimen>
 </resources>

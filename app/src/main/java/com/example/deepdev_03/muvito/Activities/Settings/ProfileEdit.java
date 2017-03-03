@@ -51,7 +51,7 @@ public class ProfileEdit extends AppCompatActivity
         this.firstName = (EditText) findViewById(R.id.user_profile_edit_first_name);
         this.secondName = (EditText) findViewById(R.id.user_profile_edit_secondName);
         this.toolbar = (Toolbar) findViewById(R.id.user_profile_edit_profile_toolbar);
-        this.fab = (FloatingActionButton) findViewById(R.id.user_profile_set_avatar);
+        //this.fab = (FloatingActionButton) findViewById(R.id.user_profile_set_avatar);
         this.avatar = (ImageView) findViewById(R.id.user_profile_avatar);
         this.avatar.setImageBitmap(getCroppedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.devka)));
     }
