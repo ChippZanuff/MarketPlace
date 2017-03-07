@@ -1,6 +1,7 @@
 package com.example.deepdev_03.muvito.Activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
