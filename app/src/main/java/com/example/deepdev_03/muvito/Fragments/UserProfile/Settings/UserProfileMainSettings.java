@@ -15,7 +15,7 @@ import com.example.deepdev_03.muvito.Activities.Settings.BlackList;
 import com.example.deepdev_03.muvito.Activities.Settings.NotificationSettings;
 import com.example.deepdev_03.muvito.Activities.Settings.PhoneNumberEdit;
 import com.example.deepdev_03.muvito.Activities.Settings.ProfileEdit;
-import com.example.deepdev_03.muvito.AddLocationActivity;
+import com.example.deepdev_03.muvito.Activities.AddLocationActivity;
 import com.example.deepdev_03.muvito.R;
 
 public class UserProfileMainSettings extends Fragment implements View.OnClickListener

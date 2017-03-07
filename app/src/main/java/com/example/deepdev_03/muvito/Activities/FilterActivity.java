@@ -1,4 +1,4 @@
-package com.example.deepdev_03.muvito;
+package com.example.deepdev_03.muvito.Activities;
 
 
 import android.content.DialogInterface;
@@ -6,10 +6,6 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.Selection;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -18,12 +14,8 @@ import android.widget.SeekBar;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.deepdev_03.muvito.R;
 import com.example.deepdev_03.muvito.Utils.NumbersFormatter;
-
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
-import java.util.Locale;
 
 public class FilterActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 

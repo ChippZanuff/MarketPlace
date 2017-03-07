@@ -1,9 +1,10 @@
-package com.example.deepdev_03.muvito;
+package com.example.deepdev_03.muvito.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.deepdev_03.muvito.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

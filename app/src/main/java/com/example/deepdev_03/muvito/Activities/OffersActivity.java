@@ -1,4 +1,4 @@
-package com.example.deepdev_03.muvito;
+package com.example.deepdev_03.muvito.Activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -26,10 +26,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.example.deepdev_03.muvito.Adapters.ImageSliderAdapter;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.GridSpacingItemDecoration;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.OfferItemsAdapter;
-import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.OfferItemsAdapterWithHeader;
 import com.example.deepdev_03.muvito.Model.OffersItem;
+import com.example.deepdev_03.muvito.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -44,7 +45,7 @@ import me.henrytao.smoothappbarlayout.SmoothAppBarLayout;
 public class OffersActivity extends AppCompatActivity implements OnMapReadyCallback
 {
     private final String OFFERS_KEY = "offerItem";
-    private final String EXTRA_IMAGE = "com.example.deepdev_03.muvito.TopCollapsingImage";
+    private final String EXTRA_IMAGE = "com.example.deepdev_03.muvito.Utils.TopCollapsingImage";
     private SmoothAppBarLayout appBar;
     private Toolbar toolbar;
     private CollapsingToolbarLayout collapsingToolbarLayout;

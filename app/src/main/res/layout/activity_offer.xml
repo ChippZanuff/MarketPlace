@@ -165,7 +165,7 @@
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/google_map_size"
-                tools:context="com.example.deepdev_03.muvito.OffersActivity"
+                tools:context="com.example.deepdev_03.muvito.Activities.OffersActivity"
                 app:cameraZoom="15"
                 app:mapType="terrain"
                 app:liteMode="true">

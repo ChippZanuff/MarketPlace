@@ -1,4 +1,4 @@
-package com.example.deepdev_03.muvito;
+package com.example.deepdev_03.muvito.Activities;
 
 
 import android.support.v7.app.AppCompatActivity;
@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.deepdev_03.muvito.Adapters.CategoriesAdapter;
+import com.example.deepdev_03.muvito.R;
+import com.example.deepdev_03.muvito.Fragments.SubcategoriesFragment;
 
 
 public class CategoriesActivity extends AppCompatActivity {

@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.GridSpacingItemDecoration;
 import com.example.deepdev_03.muvito.Adapters.RecyclerView.OfferItem.OfferItemsAdapter;
 import com.example.deepdev_03.muvito.Model.OffersItem;
-import com.example.deepdev_03.muvito.OffersActivity;
+import com.example.deepdev_03.muvito.Activities.OffersActivity;
 import com.example.deepdev_03.muvito.R;
 import com.example.deepdev_03.muvito.Utils.ItemClickSupportWithHeader;
 

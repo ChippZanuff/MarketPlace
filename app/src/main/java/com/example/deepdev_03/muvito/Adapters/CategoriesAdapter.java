@@ -1,4 +1,4 @@
-package com.example.deepdev_03.muvito;
+package com.example.deepdev_03.muvito.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.deepdev_03.muvito.Activities.CategoriesActivity;
+import com.example.deepdev_03.muvito.R;
 
 
 public class CategoriesAdapter extends BaseAdapter{

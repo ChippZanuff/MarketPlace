@@ -1,4 +1,4 @@
-package com.example.deepdev_03.muvito;
+package com.example.deepdev_03.muvito.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +10,13 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.crashlytics.android.Crashlytics;
+import com.example.deepdev_03.muvito.Activities.AddItemActivity;
+import com.example.deepdev_03.muvito.Activities.CategoriesActivity;
+import com.example.deepdev_03.muvito.Activities.FilterActivity;
 import com.example.deepdev_03.muvito.Fragments.Favorites.FavoritesTab;
 import com.example.deepdev_03.muvito.Fragments.HomePage.HomePageTab;
 import com.example.deepdev_03.muvito.Fragments.UserProfile.UserProfileTab;
+import com.example.deepdev_03.muvito.R;
 
 import io.fabric.sdk.android.Fabric;
 

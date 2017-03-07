@@ -24,7 +24,7 @@ import android.widget.TextView;
 
 import com.example.deepdev_03.muvito.Activities.SettingsActivity;
 import com.example.deepdev_03.muvito.Adapters.UserProfilePagerAdapter;
-import com.example.deepdev_03.muvito.MainActivity;
+import com.example.deepdev_03.muvito.Activities.MainActivity;
 import com.example.deepdev_03.muvito.R;
 
 public class UserProfileTab extends Fragment implements View.OnClickListener

@@ -1,4 +1,4 @@
-package com.example.deepdev_03.muvito;
+package com.example.deepdev_03.muvito.Adapters;
 
 import android.content.Context;
 import android.os.Parcelable;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.example.deepdev_03.muvito.R;
 
 import java.util.ArrayList;
 

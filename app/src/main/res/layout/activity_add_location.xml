@@ -5,7 +5,7 @@
     android:id="@+id/activity_add_location"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.deepdev_03.muvito.AddLocationActivity">
+    tools:context="com.example.deepdev_03.muvito.Activities.AddLocationActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarAddLocationActivity"
@@ -57,7 +57,7 @@
         android:layout_marginTop="?attr/actionBarSize"
         app:cameraZoom="15"
         app:mapType="normal"
-        tools:context="com.example.deepdev_03.muvito.AddLocationActivity"/>
+        tools:context="com.example.deepdev_03.muvito.Activities.AddLocationActivity"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
